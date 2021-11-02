@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.routeservice.impl.ConfigurationRouteSource" activate="activate" deactivate="deactivate">
+    <reference name="netcfgRegistry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindNetcfgRegistry" unbind="unbindNetcfgRegistry"/>
+    <reference name="routeService" interface="org.onosproject.routeservice.RouteAdminService" cardinality="1..1" policy="static" bind="bindRouteService" unbind="unbindRouteService"/>
+    <implementation class="org.onosproject.routeservice.impl.ConfigurationRouteSource"/>
+</scr:component>

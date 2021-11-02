@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.topology.impl.TopologyManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.topology.TopologyService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.net.topology.TopologyProviderRegistry"/>
+        <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+    </service>
+    <reference name="store" interface="org.onosproject.net.topology.TopologyStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.net.topology.impl.TopologyManager"/>
+</scr:component>

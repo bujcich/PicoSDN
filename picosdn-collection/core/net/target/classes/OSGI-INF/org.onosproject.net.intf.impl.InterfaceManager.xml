@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.intf.impl.InterfaceManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.intf.InterfaceService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.net.intf.InterfaceAdminService"/>
+        <provide interface="org.onosproject.event.EventSink"/>
+    </service>
+    <reference name="configService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="basicNetworkConfigService" interface="org.onosproject.net.config.BasicNetworkConfigService" cardinality="1..1" policy="static" bind="bindBasicNetworkConfigService" unbind="unbindBasicNetworkConfigService"/>
+    <implementation class="org.onosproject.net.intf.impl.InterfaceManager"/>
+</scr:component>

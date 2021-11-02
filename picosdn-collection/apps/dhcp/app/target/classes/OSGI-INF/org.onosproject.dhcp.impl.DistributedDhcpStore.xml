@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.dhcp.impl.DistributedDhcpStore" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.dhcp.DhcpStore"/>
+    </service>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <implementation class="org.onosproject.dhcp.impl.DistributedDhcpStore"/>
+</scr:component>

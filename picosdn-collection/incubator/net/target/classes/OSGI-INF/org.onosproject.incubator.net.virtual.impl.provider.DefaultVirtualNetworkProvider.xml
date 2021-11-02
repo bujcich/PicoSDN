@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.net.virtual.impl.provider.DefaultVirtualNetworkProvider" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.provider.VirtualNetworkProvider"/>
+        <provide interface="org.onosproject.net.provider.Provider"/>
+    </service>
+    <reference name="providerRegistry" interface="org.onosproject.incubator.net.virtual.provider.VirtualNetworkProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+    <implementation class="org.onosproject.incubator.net.virtual.impl.provider.DefaultVirtualNetworkProvider"/>
+</scr:component>

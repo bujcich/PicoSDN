@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.kafkaintegration.kafka.KafkaConfigManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="bootstrap.servers" value="localhost:9092"/>
+    <property name="retries" type="Integer" value="1"/>
+    <property name="max.in.flight.requests.per.connection" type="Integer" value="5"/>
+    <property name="request.required.acks" type="Integer" value="1"/>
+    <property name="key.serializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
+    <property name="value.serializer" value="org.apache.kafka.common.serialization.ByteArraySerializer"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.kafkaintegration.api.KafkaConfigService"/>
+    </service>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="kafkaPublisherAdminService" interface="org.onosproject.kafkaintegration.api.KafkaPublisherAdminService" cardinality="1..1" policy="static" bind="bindKafkaPublisherAdminService" unbind="unbindKafkaPublisherAdminService"/>
+    <implementation class="org.onosproject.kafkaintegration.kafka.KafkaConfigManager"/>
+</scr:component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.optical.intent.impl.compiler.OpticalCircuitIntentCompiler" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="maxCapacity" type="Integer" value="10"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="intentManager" interface="org.onosproject.net.intent.IntentExtensionService" cardinality="1..1" policy="static" bind="bindIntentManager" unbind="unbindIntentManager"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="resourceService" interface="org.onosproject.net.resource.ResourceService" cardinality="1..1" policy="static" bind="bindResourceService" unbind="unbindResourceService"/>
+    <reference name="intentSetMultimap" interface="org.onosproject.net.intent.IntentSetMultimap" cardinality="1..1" policy="static" bind="bindIntentSetMultimap" unbind="unbindIntentSetMultimap"/>
+    <reference name="intentService" interface="org.onosproject.net.intent.IntentService" cardinality="1..1" policy="static" bind="bindIntentService" unbind="unbindIntentService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <implementation class="org.onosproject.net.optical.intent.impl.compiler.OpticalCircuitIntentCompiler"/>
+</scr:component>

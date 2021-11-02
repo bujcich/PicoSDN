@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacknetworking.impl.OpenstackSwitchingDhcpHandler" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="dhcpServerMac" value="fe:00:00:00:00:02"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="instancePortService" interface="org.onosproject.openstacknetworking.api.InstancePortService" cardinality="1..1" policy="static" bind="bindInstancePortService" unbind="unbindInstancePortService"/>
+    <reference name="osNetworkService" interface="org.onosproject.openstacknetworking.api.OpenstackNetworkService" cardinality="1..1" policy="static" bind="bindOsNetworkService" unbind="unbindOsNetworkService"/>
+    <reference name="osNodeService" interface="org.onosproject.openstacknode.api.OpenstackNodeService" cardinality="1..1" policy="static" bind="bindOsNodeService" unbind="unbindOsNodeService"/>
+    <reference name="osFlowRuleService" interface="org.onosproject.openstacknetworking.api.OpenstackFlowRuleService" cardinality="1..1" policy="static" bind="bindOsFlowRuleService" unbind="unbindOsFlowRuleService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <implementation class="org.onosproject.openstacknetworking.impl.OpenstackSwitchingDhcpHandler"/>
+</scr:component>

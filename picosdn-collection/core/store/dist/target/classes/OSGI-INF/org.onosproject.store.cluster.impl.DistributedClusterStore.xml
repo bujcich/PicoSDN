@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="false" name="org.onosproject.store.cluster.impl.DistributedClusterStore" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="heartbeatInterval" type="Integer" value="100"/>
+    <property name="phiFailureThreshold" type="Integer" value="10"/>
+    <property name="minStandardDeviationMillis" type="Long" value="50"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.cluster.ClusterStore"/>
+        <provide interface="org.onosproject.store.Store"/>
+    </service>
+    <reference name="versionService" interface="org.onosproject.core.VersionService" cardinality="1..1" policy="static" bind="bindVersionService" unbind="unbindVersionService"/>
+    <reference name="clusterMetadataService" interface="org.onosproject.cluster.ClusterMetadataService" cardinality="1..1" policy="static" bind="bindClusterMetadataService" unbind="unbindClusterMetadataService"/>
+    <reference name="messagingService" interface="org.onosproject.store.cluster.messaging.MessagingService" cardinality="1..1" policy="static" bind="bindMessagingService" unbind="unbindMessagingService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="0..1" policy="dynamic" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <implementation class="org.onosproject.store.cluster.impl.DistributedClusterStore"/>
+</scr:component>

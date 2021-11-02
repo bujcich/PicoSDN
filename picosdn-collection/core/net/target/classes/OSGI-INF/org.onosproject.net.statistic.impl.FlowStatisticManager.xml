@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.statistic.impl.FlowStatisticManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.statistic.FlowStatisticService"/>
+    </service>
+    <reference name="statisticStore" interface="org.onosproject.net.statistic.StatisticStore" cardinality="1..1" policy="static" bind="bindStatisticStore" unbind="unbindStatisticStore"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <implementation class="org.onosproject.net.statistic.impl.FlowStatisticManager"/>
+</scr:component>

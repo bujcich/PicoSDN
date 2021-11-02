@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacknode.impl.OpenstackNodeManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="ovsdbPortNum" type="Integer" value="6640"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacknode.api.OpenstackNodeService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.openstacknode.api.OpenstackNodeAdminService"/>
+        <provide interface="org.onosproject.event.EventSink"/>
+    </service>
+    <reference name="osNodeStore" interface="org.onosproject.openstacknode.api.OpenstackNodeStore" cardinality="1..1" policy="static" bind="bindOsNodeStore" unbind="unbindOsNodeStore"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="ovsdbController" interface="org.onosproject.ovsdb.controller.OvsdbController" cardinality="1..1" policy="static" bind="bindOvsdbController" unbind="unbindOvsdbController"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <implementation class="org.onosproject.openstacknode.impl.OpenstackNodeManager"/>
+</scr:component>

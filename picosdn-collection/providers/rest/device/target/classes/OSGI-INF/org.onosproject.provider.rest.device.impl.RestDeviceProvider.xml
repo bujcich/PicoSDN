@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.rest.device.impl.RestDeviceProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="pollFrequency" type="Integer" value="30"/>
+    <reference name="providerRegistry" interface="org.onosproject.net.device.DeviceProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="controller" interface="org.onosproject.protocol.rest.RestSBController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+    <reference name="netCfgService" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindNetCfgService" unbind="unbindNetCfgService"/>
+    <reference name="compCfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCompCfgService" unbind="unbindCompCfgService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <implementation class="org.onosproject.provider.rest.device.impl.RestDeviceProvider"/>
+</scr:component>

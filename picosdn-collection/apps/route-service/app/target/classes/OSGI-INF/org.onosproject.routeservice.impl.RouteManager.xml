@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.onosproject.routeservice.impl.RouteManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.routeservice.RouteService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.routeservice.RouteAdminService"/>
+    </service>
+    <reference name="routeStore" interface="org.onosproject.routeservice.RouteStore" cardinality="1..1" policy="static" bind="bindRouteStore" unbind="unbindRouteStore"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <implementation class="org.onosproject.routeservice.impl.RouteManager"/>
+</scr:component>

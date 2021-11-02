@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.ovsdb.provider.tunnel.OvsdbTunnelProvider" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.tunnel.TunnelProvider"/>
+        <provide interface="org.onosproject.net.provider.Provider"/>
+    </service>
+    <reference name="providerRegistry" interface="org.onosproject.incubator.net.tunnel.TunnelProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <implementation class="org.onosproject.ovsdb.provider.tunnel.OvsdbTunnelProvider"/>
+</scr:component>

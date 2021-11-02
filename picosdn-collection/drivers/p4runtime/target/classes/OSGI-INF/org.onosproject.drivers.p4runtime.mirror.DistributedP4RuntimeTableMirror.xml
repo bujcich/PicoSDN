@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.drivers.p4runtime.mirror.DistributedP4RuntimeTableMirror" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.drivers.p4runtime.mirror.P4RuntimeTableMirror"/>
+        <provide interface="org.onosproject.drivers.p4runtime.mirror.P4RuntimeMirror"/>
+    </service>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <implementation class="org.onosproject.drivers.p4runtime.mirror.DistributedP4RuntimeTableMirror"/>
+</scr:component>

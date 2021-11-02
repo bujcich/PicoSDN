@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.intent.impl.compiler.LinkCollectionIntentFlowObjectiveCompiler" activate="activate" deactivate="deactivate">
+    <reference name="registrator" interface="org.onosproject.net.intent.impl.compiler.IntentConfigurableRegistrator" cardinality="1..1" policy="static" bind="bindRegistrator" unbind="unbindRegistrator"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="flowObjectiveService" interface="org.onosproject.net.flowobjective.FlowObjectiveService" cardinality="1..1" policy="static" bind="bindFlowObjectiveService" unbind="unbindFlowObjectiveService"/>
+    <reference name="resourceService" interface="org.onosproject.net.resource.ResourceService" cardinality="1..1" policy="static" bind="bindResourceService" unbind="unbindResourceService"/>
+    <reference name="domainService" interface="org.onosproject.net.domain.DomainService" cardinality="1..1" policy="static" bind="bindDomainService" unbind="unbindDomainService"/>
+    <implementation class="org.onosproject.net.intent.impl.compiler.LinkCollectionIntentFlowObjectiveCompiler"/>
+</scr:component>

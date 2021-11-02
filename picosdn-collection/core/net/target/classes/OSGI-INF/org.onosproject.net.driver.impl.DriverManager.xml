@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="false" immediate="true" name="org.onosproject.net.driver.impl.DriverManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.driver.DriverService"/>
+        <provide interface="org.onosproject.net.driver.DriverRegistry"/>
+        <provide interface="org.onosproject.net.driver.DriverPrimordialResolver"/>
+        <provide interface="org.onosproject.net.driver.DriverResolver"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+    </service>
+    <reference name="registry" interface="org.onosproject.net.driver.DriverRegistry" cardinality="1..1" policy="static" bind="bindRegistry" unbind="unbindRegistry"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="networkConfigService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetworkConfigService" unbind="unbindNetworkConfigService"/>
+    <implementation class="org.onosproject.net.driver.impl.DriverManager"/>
+</scr:component>

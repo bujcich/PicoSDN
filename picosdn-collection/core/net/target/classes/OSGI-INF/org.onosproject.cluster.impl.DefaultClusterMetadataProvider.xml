@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.cluster.impl.DefaultClusterMetadataProvider" activate="activate" deactivate="deactivate">
+    <reference name="providerRegistry" interface="org.onosproject.cluster.ClusterMetadataProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="versionService" interface="org.onosproject.core.VersionService" cardinality="1..1" policy="static" bind="bindVersionService" unbind="unbindVersionService"/>
+    <implementation class="org.onosproject.cluster.impl.DefaultClusterMetadataProvider"/>
+</scr:component>

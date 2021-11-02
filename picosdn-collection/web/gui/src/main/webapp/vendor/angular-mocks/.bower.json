@@ -1,0 +1,11 @@
+{
+  "name": "angular-mocks",
+  "_cacheHeaders": {
+    "Content-Length": "18109",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "main": "index.js",
+  "_source": "https://code.angularjs.org/1.3.5/angular-mocks.js",
+  "_target": "*",
+  "_originalSource": "https://code.angularjs.org/1.3.5/angular-mocks.js"
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.mlb.MastershipLoadBalancer" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="schedulePeriod" type="Integer" value="30"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="mastershipAdminService" interface="org.onosproject.mastership.MastershipAdminService" cardinality="1..1" policy="static" bind="bindMastershipAdminService" unbind="unbindMastershipAdminService"/>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="regionService" interface="org.onosproject.net.region.RegionService" cardinality="1..1" policy="static" bind="bindRegionService" unbind="unbindRegionService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <implementation class="org.onosproject.mlb.MastershipLoadBalancer"/>
+</scr:component>

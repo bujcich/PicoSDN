@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="false" immediate="true" name="org.onosproject.incubator.store.virtual.impl.DistributedVirtualPacketStore" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="messageHandlerThreadPoolSize" type="Integer" value="4"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualNetworkPacketStore"/>
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualStore"/>
+    </service>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="communicationService" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindCommunicationService" unbind="unbindCommunicationService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <implementation class="org.onosproject.incubator.store.virtual.impl.DistributedVirtualPacketStore"/>
+</scr:component>

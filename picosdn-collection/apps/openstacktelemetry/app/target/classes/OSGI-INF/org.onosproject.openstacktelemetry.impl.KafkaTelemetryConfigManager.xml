@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacktelemetry.impl.KafkaTelemetryConfigManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="address" value="localhost"/>
+    <property name="port" type="Integer" value="9092"/>
+    <property name="retries" type="Integer" value="0"/>
+    <property name="requiredAcks" value="all"/>
+    <property name="batchSize" type="Integer" value="16384"/>
+    <property name="lingerMs" type="Integer" value="1"/>
+    <property name="memoryBuffer" type="Integer" value="33554432"/>
+    <property name="keySerializer" value="org.apache.kafka.common.serialization.StringSerializer"/>
+    <property name="valueSerializer" value="org.apache.kafka.common.serialization.ByteArraySerializer"/>
+    <property name="enableService" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacktelemetry.api.KafkaTelemetryConfigService"/>
+        <provide interface="org.onosproject.openstacktelemetry.api.TelemetryConfigService"/>
+    </service>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="kafkaTelemetryAdminService" interface="org.onosproject.openstacktelemetry.api.KafkaTelemetryAdminService" cardinality="1..1" policy="static" bind="bindKafkaTelemetryAdminService" unbind="unbindKafkaTelemetryAdminService"/>
+    <implementation class="org.onosproject.openstacktelemetry.impl.KafkaTelemetryConfigManager"/>
+</scr:component>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="org.onosproject.net.driver.impl.DriverRegistryManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="requiredDrivers" value="default"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.driver.DriverAdminService"/>
+        <provide interface="org.onosproject.net.driver.DriverRegistry"/>
+        <provide interface="org.onosproject.net.driver.DriverPrimordialResolver"/>
+        <provide interface="org.onosproject.net.driver.DriverResolver"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.net.driver.BehaviourClassResolver"/>
+        <provide interface="org.onosproject.net.driver.DriverProvider"/>
+    </service>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="componenService" interface="org.onosproject.component.ComponentService" cardinality="1..1" policy="static" bind="bindComponenService" unbind="unbindComponenService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.net.driver.impl.DriverRegistryManager"/>
+</scr:component>

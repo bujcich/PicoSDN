@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="false" immediate="true" name="org.onosproject.incubator.store.virtual.impl.ConsistentVirtualDeviceMastershipStore" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualNetworkMastershipStore"/>
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualStore"/>
+    </service>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="leadershipAdminService" interface="org.onosproject.cluster.LeadershipAdminService" cardinality="1..1" policy="static" bind="bindLeadershipAdminService" unbind="unbindLeadershipAdminService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+    <implementation class="org.onosproject.incubator.store.virtual.impl.ConsistentVirtualDeviceMastershipStore"/>
+</scr:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.proxytest.ProxyTest" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.proxytest.ProxyTest"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="proxyService" interface="org.onosproject.cluster.ProxyService" cardinality="1..1" policy="static" bind="bindProxyService" unbind="unbindProxyService"/>
+    <reference name="mastershipProxyService" interface="org.onosproject.mastership.MastershipProxyService" cardinality="1..1" policy="static" bind="bindMastershipProxyService" unbind="unbindMastershipProxyService"/>
+    <implementation class="org.onosproject.proxytest.ProxyTest"/>
+</scr:component>

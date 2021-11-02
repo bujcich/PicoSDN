@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.host.impl.HostProbingManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.host.HostProbingService"/>
+        <provide interface="org.onosproject.net.host.HostProbingProviderRegistry"/>
+        <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+        <provide interface="org.onosproject.net.host.HostLocationProbingService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+    </service>
+    <reference name="hostProbeStore" interface="org.onosproject.net.host.HostProbeStore" cardinality="1..1" policy="static" bind="bindHostProbeStore" unbind="unbindHostProbeStore"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.net.host.impl.HostProbingManager"/>
+</scr:component>

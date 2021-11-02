@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.net.config.impl.ExtraNetworkConfigs" activate="activate" deactivate="deactivate">
+    <reference name="registry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindRegistry" unbind="unbindRegistry"/>
+    <implementation class="org.onosproject.incubator.net.config.impl.ExtraNetworkConfigs"/>
+</scr:component>

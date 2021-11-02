@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.lldp.impl.LldpLinkProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="enabled" type="Boolean" value="true"/>
+    <property name="useBDDP" type="Boolean" value="true"/>
+    <property name="probeRate" type="Integer" value="3000"/>
+    <property name="staleLinkAge" type="Integer" value="10000"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="providerRegistry" interface="org.onosproject.net.link.LinkProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="masterService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMasterService" unbind="unbindMasterService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="cfgRegistry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindCfgRegistry" unbind="unbindCfgRegistry"/>
+    <reference name="clusterMetadataService" interface="org.onosproject.cluster.ClusterMetadataService" cardinality="1..1" policy="static" bind="bindClusterMetadataService" unbind="unbindClusterMetadataService"/>
+    <implementation class="org.onosproject.provider.lldp.impl.LldpLinkProvider"/>
+</scr:component>

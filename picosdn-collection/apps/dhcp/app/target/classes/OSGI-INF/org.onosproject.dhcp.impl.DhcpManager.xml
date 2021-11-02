@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.dhcp.impl.DhcpManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="allowHostDiscovery" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.dhcp.DhcpService"/>
+    </service>
+    <reference name="cfgService" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="dhcpStore" interface="org.onosproject.dhcp.DhcpStore" cardinality="1..1" policy="static" bind="bindDhcpStore" unbind="unbindDhcpStore"/>
+    <reference name="hostProviderRegistry" interface="org.onosproject.net.host.HostProviderRegistry" cardinality="1..1" policy="static" bind="bindHostProviderRegistry" unbind="unbindHostProviderRegistry"/>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <implementation class="org.onosproject.dhcp.impl.DhcpManager"/>
+</scr:component>

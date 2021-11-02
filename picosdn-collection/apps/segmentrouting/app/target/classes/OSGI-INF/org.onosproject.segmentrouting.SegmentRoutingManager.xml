@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.segmentrouting.SegmentRoutingManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="activeProbing" type="Boolean" value="true"/>
+    <property name="singleHomedDown" type="Boolean" value="false"/>
+    <property name="respondToUnknownHosts" type="Boolean" value="true"/>
+    <property name="routeDoubleTaggedHosts" type="Boolean" value="false"/>
+    <property name="defaultInternalVlan" type="Integer" value="4094"/>
+    <property name="pwTransportVlan" type="Integer" value="4090"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.segmentrouting.SegmentRoutingService"/>
+    </service>
+    <reference name="compCfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCompCfgService" unbind="unbindCompCfgService"/>
+    <reference name="neighbourResolutionService" interface="org.onosproject.net.neighbour.NeighbourResolutionService" cardinality="1..1" policy="static" bind="bindNeighbourResolutionService" unbind="unbindNeighbourResolutionService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="probingService" interface="org.onosproject.net.host.HostProbingService" cardinality="1..1" policy="static" bind="bindProbingService" unbind="unbindProbingService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="deviceAdminService" interface="org.onosproject.net.device.DeviceAdminService" cardinality="1..1" policy="static" bind="bindDeviceAdminService" unbind="unbindDeviceAdminService"/>
+    <reference name="flowObjectiveService" interface="org.onosproject.net.flowobjective.FlowObjectiveService" cardinality="1..1" policy="static" bind="bindFlowObjectiveService" unbind="unbindFlowObjectiveService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="multicastRouteService" interface="org.onosproject.mcast.api.MulticastRouteService" cardinality="1..1" policy="static" bind="bindMulticastRouteService" unbind="unbindMulticastRouteService"/>
+    <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+    <reference name="routeService" interface="org.onosproject.routeservice.RouteService" cardinality="1..1" policy="static" bind="bindRouteService" unbind="unbindRouteService"/>
+    <reference name="cfgService" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="interfaceService" interface="org.onosproject.net.intf.InterfaceService" cardinality="1..1" policy="static" bind="bindInterfaceService" unbind="unbindInterfaceService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="workPartitionService" interface="org.onosproject.net.intent.WorkPartitionService" cardinality="1..1" policy="static" bind="bindWorkPartitionService" unbind="unbindWorkPartitionService"/>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="xconnectService" interface="org.onosproject.segmentrouting.xconnect.api.XconnectService" cardinality="0..1" policy="static" bind="bindXconnectService" unbind="unbindXconnectService"/>
+    <implementation class="org.onosproject.segmentrouting.SegmentRoutingManager"/>
+</scr:component>

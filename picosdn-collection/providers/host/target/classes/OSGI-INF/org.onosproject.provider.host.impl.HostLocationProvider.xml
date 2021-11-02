@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.host.impl.HostLocationProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="hostRemovalEnabled" type="Boolean" value="true"/>
+    <property name="requestArp" type="Boolean" value="true"/>
+    <property name="requestIpv6ND" type="Boolean" value="false"/>
+    <property name="useDhcp" type="Boolean" value="false"/>
+    <property name="useDhcp6" type="Boolean" value="false"/>
+    <property name="requestInterceptsEnabled" type="Boolean" value="true"/>
+    <property name="multihomingEnabled" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.host.HostProvider"/>
+        <provide interface="org.onosproject.net.provider.Provider"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="providerRegistry" interface="org.onosproject.net.host.HostProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="registry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindRegistry" unbind="unbindRegistry"/>
+    <reference name="interfaceService" interface="org.onosproject.net.intf.InterfaceService" cardinality="1..1" policy="static" bind="bindInterfaceService" unbind="unbindInterfaceService"/>
+    <reference name="netcfgService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetcfgService" unbind="unbindNetcfgService"/>
+    <implementation class="org.onosproject.provider.host.impl.HostLocationProvider"/>
+</scr:component>

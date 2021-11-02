@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="false" immediate="true" name="org.onosproject.incubator.store.virtual.impl.DistributedVirtualFlowRuleStore" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="msgHandlerPoolSize" type="Integer" value="1"/>
+    <property name="backupPeriod" type="Integer" value="2000"/>
+    <property name="persistenceEnabled" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualNetworkFlowRuleStore"/>
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualStore"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="vnaService" interface="org.onosproject.incubator.net.virtual.VirtualNetworkService" cardinality="1..1" policy="static" bind="bindVnaService" unbind="unbindVnaService"/>
+    <implementation class="org.onosproject.incubator.store.virtual.impl.DistributedVirtualFlowRuleStore"/>
+</scr:component>

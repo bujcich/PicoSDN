@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.rpc.nb.impl.GrpcServer" activate="activate" deactivate="deactivate">
+    <reference name="multicastRouteService" interface="org.onosproject.net.mcast.MulticastRouteService" cardinality="1..1" policy="static" bind="bindMulticastRouteService" unbind="unbindMulticastRouteService"/>
+    <implementation class="org.onosproject.incubator.rpc.nb.impl.GrpcServer"/>
+</scr:component>

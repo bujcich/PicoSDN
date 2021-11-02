@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.net.virtual.impl.provider.DefaultVirtualFlowRuleProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.provider.VirtualFlowRuleProvider"/>
+        <provide interface="org.onosproject.incubator.net.virtual.provider.VirtualProvider"/>
+    </service>
+    <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+    <reference name="vnService" interface="org.onosproject.incubator.net.virtual.VirtualNetworkService" cardinality="1..1" policy="static" bind="bindVnService" unbind="unbindVnService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="providerRegistryService" interface="org.onosproject.incubator.net.virtual.provider.VirtualProviderRegistryService" cardinality="1..1" policy="static" bind="bindProviderRegistryService" unbind="unbindProviderRegistryService"/>
+    <implementation class="org.onosproject.incubator.net.virtual.impl.provider.DefaultVirtualFlowRuleProvider"/>
+</scr:component>

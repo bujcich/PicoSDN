@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.flow.impl.FlowRuleManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="allowExtraneousRules" type="Boolean" value="false"/>
+    <property name="purgeOnDisconnection" type="Boolean" value="false"/>
+    <property name="fallbackFlowPollFrequency" type="Integer" value="30"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.flow.FlowRuleService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.net.flow.FlowRuleProviderRegistry"/>
+        <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+    </service>
+    <reference name="store" interface="org.onosproject.net.flow.FlowRuleStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.net.flow.impl.FlowRuleManager"/>
+</scr:component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="org.onosproject.net.flowobjective.impl.InOrderFlowObjectiveManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="numThreads" type="Integer" value="4"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.flowobjective.FlowObjectiveService"/>
+    </service>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="groupService" interface="org.onosproject.net.group.GroupService" cardinality="1..1" policy="static" bind="bindGroupService" unbind="unbindGroupService"/>
+    <reference name="flowObjectiveStore" interface="org.onosproject.net.flowobjective.FlowObjectiveStore" cardinality="1..1" policy="static" bind="bindFlowObjectiveStore" unbind="unbindFlowObjectiveStore"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <implementation class="org.onosproject.net.flowobjective.impl.InOrderFlowObjectiveManager"/>
+</scr:component>

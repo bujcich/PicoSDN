@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.optical.internal.OpticalModelLoader" activate="activate" deactivate="deactivate">
+    <reference name="portOperatorRegistry" interface="org.onosproject.net.config.PortConfigOperatorRegistry" cardinality="1..1" policy="static" bind="bindPortOperatorRegistry" unbind="unbindPortOperatorRegistry"/>
+    <reference name="netcfgRegistry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindNetcfgRegistry" unbind="unbindNetcfgRegistry"/>
+    <implementation class="org.onosproject.net.optical.internal.OpticalModelLoader"/>
+</scr:component>

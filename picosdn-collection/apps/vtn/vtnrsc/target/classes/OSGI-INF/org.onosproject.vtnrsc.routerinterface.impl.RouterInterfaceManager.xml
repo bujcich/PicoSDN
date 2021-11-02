@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.vtnrsc.routerinterface.impl.RouterInterfaceManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.vtnrsc.routerinterface.RouterInterfaceService"/>
+    </service>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="virtualPortService" interface="org.onosproject.vtnrsc.virtualport.VirtualPortService" cardinality="1..1" policy="static" bind="bindVirtualPortService" unbind="unbindVirtualPortService"/>
+    <reference name="subnetService" interface="org.onosproject.vtnrsc.subnet.SubnetService" cardinality="1..1" policy="static" bind="bindSubnetService" unbind="unbindSubnetService"/>
+    <reference name="routerService" interface="org.onosproject.vtnrsc.router.RouterService" cardinality="1..1" policy="static" bind="bindRouterService" unbind="unbindRouterService"/>
+    <implementation class="org.onosproject.vtnrsc.routerinterface.impl.RouterInterfaceManager"/>
+</scr:component>

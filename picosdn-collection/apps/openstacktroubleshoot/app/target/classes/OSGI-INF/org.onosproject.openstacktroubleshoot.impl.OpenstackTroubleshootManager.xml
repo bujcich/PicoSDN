@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacktroubleshoot.impl.OpenstackTroubleshootManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacktroubleshoot.api.OpenstackTroubleshootService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="osNodeService" interface="org.onosproject.openstacknode.api.OpenstackNodeService" cardinality="1..1" policy="static" bind="bindOsNodeService" unbind="unbindOsNodeService"/>
+    <reference name="osNetworkService" interface="org.onosproject.openstacknetworking.api.OpenstackNetworkService" cardinality="1..1" policy="static" bind="bindOsNetworkService" unbind="unbindOsNetworkService"/>
+    <reference name="osFlowRuleService" interface="org.onosproject.openstacknetworking.api.OpenstackFlowRuleService" cardinality="1..1" policy="static" bind="bindOsFlowRuleService" unbind="unbindOsFlowRuleService"/>
+    <reference name="instancePortService" interface="org.onosproject.openstacknetworking.api.InstancePortService" cardinality="1..1" policy="static" bind="bindInstancePortService" unbind="unbindInstancePortService"/>
+    <implementation class="org.onosproject.openstacktroubleshoot.impl.OpenstackTroubleshootManager"/>
+</scr:component>

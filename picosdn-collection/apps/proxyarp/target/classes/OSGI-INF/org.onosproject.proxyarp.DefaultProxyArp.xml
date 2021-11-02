@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.proxyarp.DefaultProxyArp" activate="activate" deactivate="deactivate">
+    <reference name="edgeService" interface="org.onosproject.net.edge.EdgePortService" cardinality="1..1" policy="static" bind="bindEdgeService" unbind="unbindEdgeService"/>
+    <reference name="neighbourResolutionService" interface="org.onosproject.net.neighbour.NeighbourResolutionService" cardinality="1..1" policy="static" bind="bindNeighbourResolutionService" unbind="unbindNeighbourResolutionService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <implementation class="org.onosproject.proxyarp.DefaultProxyArp"/>
+</scr:component>

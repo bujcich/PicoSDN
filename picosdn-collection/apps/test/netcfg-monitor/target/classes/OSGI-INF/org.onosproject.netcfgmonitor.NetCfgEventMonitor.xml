@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.netcfgmonitor.NetCfgEventMonitor" activate="activate" deactivate="deactivate">
+    <reference name="networkConfigService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetworkConfigService" unbind="unbindNetworkConfigService"/>
+    <implementation class="org.onosproject.netcfgmonitor.NetCfgEventMonitor"/>
+</scr:component>

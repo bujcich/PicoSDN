@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.pim.impl.PimInterfaceManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.pim.impl.PimInterfaceService"/>
+    </service>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="networkConfig" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindNetworkConfig" unbind="unbindNetworkConfig"/>
+    <reference name="interfaceService" interface="org.onosproject.net.intf.InterfaceService" cardinality="1..1" policy="static" bind="bindInterfaceService" unbind="unbindInterfaceService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="multicastRouteService" interface="org.onosproject.net.mcast.MulticastRouteService" cardinality="1..1" policy="static" bind="bindMulticastRouteService" unbind="unbindMulticastRouteService"/>
+    <reference name="unicastRouteService" interface="org.onosproject.routeservice.RouteService" cardinality="1..1" policy="static" bind="bindUnicastRouteService" unbind="unbindUnicastRouteService"/>
+    <implementation class="org.onosproject.pim.impl.PimInterfaceManager"/>
+</scr:component>

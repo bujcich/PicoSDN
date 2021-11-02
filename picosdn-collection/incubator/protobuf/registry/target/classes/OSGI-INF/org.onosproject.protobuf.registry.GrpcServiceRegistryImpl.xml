@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="false" name="org.onosproject.protobuf.registry.GrpcServiceRegistryImpl" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="listeningPort" type="Integer" value="64000"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.protobuf.api.GrpcServiceRegistry"/>
+    </service>
+    <implementation class="org.onosproject.protobuf.registry.GrpcServiceRegistryImpl"/>
+</scr:component>

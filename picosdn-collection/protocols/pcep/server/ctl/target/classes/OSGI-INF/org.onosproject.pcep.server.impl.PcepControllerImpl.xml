@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.pcep.server.impl.PcepControllerImpl" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.pcep.api.PcepController"/>
+    </service>
+    <implementation class="org.onosproject.pcep.server.impl.PcepControllerImpl"/>
+</scr:component>

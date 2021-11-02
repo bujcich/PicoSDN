@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.kafkaintegration.kafka.EventListener" activate="activate" deactivate="deactivate">
+    <reference name="eventSubscriptionService" interface="org.onosproject.kafkaintegration.api.EventSubscriptionService" cardinality="1..1" policy="static" bind="bindEventSubscriptionService" unbind="unbindEventSubscriptionService"/>
+    <reference name="eventConversionService" interface="org.onosproject.kafkaintegration.api.EventConversionService" cardinality="1..1" policy="static" bind="bindEventConversionService" unbind="unbindEventConversionService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="kafkaStoreService" interface="org.onosproject.kafkaintegration.api.KafkaEventStorageService" cardinality="1..1" policy="static" bind="bindKafkaStoreService" unbind="unbindKafkaStoreService"/>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <implementation class="org.onosproject.kafkaintegration.kafka.EventListener"/>
+</scr:component>

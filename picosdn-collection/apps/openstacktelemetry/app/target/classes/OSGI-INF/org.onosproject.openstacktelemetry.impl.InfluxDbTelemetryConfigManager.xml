@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacktelemetry.impl.InfluxDbTelemetryConfigManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="address" value="localhost"/>
+    <property name="port" type="Integer" value="8086"/>
+    <property name="username" value="onos"/>
+    <property name="password" value="onos"/>
+    <property name="database" value="onos"/>
+    <property name="measurement" value="sonaflow"/>
+    <property name="enableBatch" type="Boolean" value="true"/>
+    <property name="enableService" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacktelemetry.api.InfluxDbTelemetryConfigService"/>
+        <provide interface="org.onosproject.openstacktelemetry.api.TelemetryConfigService"/>
+    </service>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="influxDbTelemetryAdminService" interface="org.onosproject.openstacktelemetry.api.InfluxDbTelemetryAdminService" cardinality="1..1" policy="static" bind="bindInfluxDbTelemetryAdminService" unbind="unbindInfluxDbTelemetryAdminService"/>
+    <implementation class="org.onosproject.openstacktelemetry.impl.InfluxDbTelemetryConfigManager"/>
+</scr:component>

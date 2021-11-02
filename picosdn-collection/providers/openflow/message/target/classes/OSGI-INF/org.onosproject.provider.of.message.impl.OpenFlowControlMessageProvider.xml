@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.of.message.impl.OpenFlowControlMessageProvider" activate="activate" deactivate="deactivate">
+    <reference name="providerRegistry" interface="org.onosproject.cpman.message.ControlMessageProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="controller" interface="org.onosproject.openflow.controller.OpenFlowController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+    <reference name="metricsService" interface="org.onlab.metrics.MetricsService" cardinality="1..1" policy="static" bind="bindMetricsService" unbind="unbindMetricsService"/>
+    <implementation class="org.onosproject.provider.of.message.impl.OpenFlowControlMessageProvider"/>
+</scr:component>

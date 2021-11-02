@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.net.virtual.impl.provider.DefaultVirtualMeterProvider" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.provider.VirtualMeterProvider"/>
+        <provide interface="org.onosproject.incubator.net.virtual.provider.VirtualProvider"/>
+    </service>
+    <reference name="providerRegistryService" interface="org.onosproject.incubator.net.virtual.provider.VirtualProviderRegistryService" cardinality="1..1" policy="static" bind="bindProviderRegistryService" unbind="unbindProviderRegistryService"/>
+    <reference name="meterService" interface="org.onosproject.net.meter.MeterService" cardinality="1..1" policy="static" bind="bindMeterService" unbind="unbindMeterService"/>
+    <implementation class="org.onosproject.incubator.net.virtual.impl.provider.DefaultVirtualMeterProvider"/>
+</scr:component>

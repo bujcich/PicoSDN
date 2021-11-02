@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.d.config.sync.impl.DynamicDeviceConfigSynchronizer" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.d.config.sync.DeviceConfigSynchronizationProviderRegistry"/>
+        <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+    </service>
+    <reference name="dynConfigService" interface="org.onosproject.config.DynamicConfigService" cardinality="1..1" policy="static" bind="bindDynConfigService" unbind="unbindDynConfigService"/>
+    <reference name="netcfgService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetcfgService" unbind="unbindNetcfgService"/>
+    <implementation class="org.onosproject.d.config.sync.impl.DynamicDeviceConfigSynchronizer"/>
+</scr:component>

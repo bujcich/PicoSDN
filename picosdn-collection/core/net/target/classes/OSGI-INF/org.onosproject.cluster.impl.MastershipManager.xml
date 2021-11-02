@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.cluster.impl.MastershipManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="useRegionForBalanceRoles" type="Boolean" value="false"/>
+    <property name="rebalanceRolesOnUpgrade" type="Boolean" value="true"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.mastership.MastershipService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.mastership.MastershipAdminService"/>
+        <provide interface="org.onosproject.mastership.MastershipTermService"/>
+        <provide interface="org.onosproject.core.MetricsHelper"/>
+    </service>
+    <reference name="store" interface="org.onosproject.mastership.MastershipStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="metricsService" interface="org.onlab.metrics.MetricsService" cardinality="1..1" policy="static" bind="bindMetricsService" unbind="unbindMetricsService"/>
+    <reference name="regionService" interface="org.onosproject.net.region.RegionService" cardinality="1..1" policy="static" bind="bindRegionService" unbind="unbindRegionService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="upgradeService" interface="org.onosproject.upgrade.UpgradeService" cardinality="1..1" policy="static" bind="bindUpgradeService" unbind="unbindUpgradeService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.cluster.impl.MastershipManager"/>
+</scr:component>

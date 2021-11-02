@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0" immediate="true" name="org.onosproject.incubator.net.virtual.impl.provider.VirtualProviderManager">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.provider.VirtualProviderRegistryService"/>
+    </service>
+    <implementation class="org.onosproject.incubator.net.virtual.impl.provider.VirtualProviderManager"/>
+</scr:component>

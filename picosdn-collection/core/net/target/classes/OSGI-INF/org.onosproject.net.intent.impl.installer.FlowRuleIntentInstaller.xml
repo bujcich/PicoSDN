@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.intent.impl.installer.FlowRuleIntentInstaller" activate="activate" deactivate="deactivated" modified="modified">
+    <property name="nonDisruptiveInstallationWaitingTime" type="Integer" value="1"/>
+    <reference name="intentExtensionService" interface="org.onosproject.net.intent.IntentExtensionService" cardinality="1..1" policy="static" bind="bindIntentExtensionService" unbind="unbindIntentExtensionService"/>
+    <reference name="trackerService" interface="org.onosproject.net.intent.ObjectiveTrackerService" cardinality="1..1" policy="static" bind="bindTrackerService" unbind="unbindTrackerService"/>
+    <reference name="intentInstallCoordinator" interface="org.onosproject.net.intent.IntentInstallCoordinator" cardinality="1..1" policy="static" bind="bindIntentInstallCoordinator" unbind="unbindIntentInstallCoordinator"/>
+    <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="store" interface="org.onosproject.net.intent.IntentStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <implementation class="org.onosproject.net.intent.impl.installer.FlowRuleIntentInstaller"/>
+</scr:component>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.cluster.impl.ComponentsMonitor" activate="activate" deactivate="deactivate">
+    <reference name="featuresService" interface="org.apache.karaf.features.FeaturesService" cardinality="1..1" policy="static" bind="bindFeaturesService" unbind="unbindFeaturesService"/>
+    <reference name="scrService" interface="org.apache.felix.scr.ScrService" cardinality="1..1" policy="static" bind="bindScrService" unbind="unbindScrService"/>
+    <reference name="clusterAdminService" interface="org.onosproject.cluster.ClusterAdminService" cardinality="1..1" policy="static" bind="bindClusterAdminService" unbind="unbindClusterAdminService"/>
+    <implementation class="org.onosproject.cluster.impl.ComponentsMonitor"/>
+</scr:component>

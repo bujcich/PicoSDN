@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.resource.impl.ResourceRegistrar" activate="activate" deactivate="deactivate">
+    <reference name="adminService" interface="org.onosproject.net.resource.ResourceAdminService" cardinality="1..1" policy="static" bind="bindAdminService" unbind="unbindAdminService"/>
+    <reference name="resourceService" interface="org.onosproject.net.resource.ResourceService" cardinality="1..1" policy="static" bind="bindResourceService" unbind="unbindResourceService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="cfgRegistry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindCfgRegistry" unbind="unbindCfgRegistry"/>
+    <implementation class="org.onosproject.net.resource.impl.ResourceRegistrar"/>
+</scr:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.intent.impl.IntentCleanup" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="enabled" type="Boolean" value="true"/>
+    <property name="period" type="Integer" value="5"/>
+    <property name="retryThreshold" type="Integer" value="5"/>
+    <reference name="service" interface="org.onosproject.net.intent.IntentService" cardinality="1..1" policy="static" bind="bindService" unbind="unbindService"/>
+    <reference name="store" interface="org.onosproject.net.intent.IntentStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <implementation class="org.onosproject.net.intent.impl.IntentCleanup"/>
+</scr:component>

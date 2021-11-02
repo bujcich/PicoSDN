@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.odtn.impl.ServiceApplicationComponent" activate="activate" deactivate="deactivate">
+    <reference name="dynConfigService" interface="org.onosproject.config.DynamicConfigService" cardinality="1..1" policy="static" bind="bindDynConfigService" unbind="unbindDynConfigService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="netcfgService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetcfgService" unbind="unbindNetcfgService"/>
+    <reference name="netcfgRegistry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindNetcfgRegistry" unbind="unbindNetcfgRegistry"/>
+    <reference name="rpcRegistry" interface="org.onosproject.yang.model.RpcRegistry" cardinality="1..1" policy="static" bind="bindRpcRegistry" unbind="unbindRpcRegistry"/>
+    <reference name="tapiTopologyManager" interface="org.onosproject.odtn.TapiTopologyManager" cardinality="1..1" policy="static" bind="bindTapiTopologyManager" unbind="unbindTapiTopologyManager"/>
+    <reference name="resolver" interface="org.onosproject.odtn.TapiResolver" cardinality="1..1" policy="static" bind="bindResolver" unbind="unbindResolver"/>
+    <implementation class="org.onosproject.odtn.impl.ServiceApplicationComponent"/>
+</scr:component>

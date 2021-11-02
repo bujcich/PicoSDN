@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.intent.impl.installer.DomainIntentInstaller" activate="activated" deactivate="deactivated">
+    <reference name="intentExtensionService" interface="org.onosproject.net.intent.IntentExtensionService" cardinality="1..1" policy="static" bind="bindIntentExtensionService" unbind="unbindIntentExtensionService"/>
+    <reference name="trackerService" interface="org.onosproject.net.intent.ObjectiveTrackerService" cardinality="1..1" policy="static" bind="bindTrackerService" unbind="unbindTrackerService"/>
+    <reference name="intentInstallCoordinator" interface="org.onosproject.net.intent.IntentInstallCoordinator" cardinality="1..1" policy="static" bind="bindIntentInstallCoordinator" unbind="unbindIntentInstallCoordinator"/>
+    <reference name="domainIntentService" interface="org.onosproject.net.domain.DomainIntentService" cardinality="1..1" policy="static" bind="bindDomainIntentService" unbind="unbindDomainIntentService"/>
+    <implementation class="org.onosproject.net.intent.impl.installer.DomainIntentInstaller"/>
+</scr:component>

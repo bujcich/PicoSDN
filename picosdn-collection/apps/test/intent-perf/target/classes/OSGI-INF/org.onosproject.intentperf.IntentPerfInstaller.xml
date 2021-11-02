@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.intentperf.IntentPerfInstaller" activate="activate" deactivate="deactivate" modified="modify">
+    <property name="numKeys" type="Integer" value="40000"/>
+    <property name="cyclePeriod" type="Integer" value="1000"/>
+    <property name="numNeighbors" type="Integer" value="0"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.intentperf.IntentPerfInstaller"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="intentService" interface="org.onosproject.net.intent.IntentService" cardinality="1..1" policy="static" bind="bindIntentService" unbind="unbindIntentService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="partitionService" interface="org.onosproject.net.intent.WorkPartitionService" cardinality="1..1" policy="static" bind="bindPartitionService" unbind="unbindPartitionService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="sampleCollector" interface="org.onosproject.intentperf.IntentPerfCollector" cardinality="1..1" policy="static" bind="bindSampleCollector" unbind="unbindSampleCollector"/>
+    <reference name="communicationService" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindCommunicationService" unbind="unbindCommunicationService"/>
+    <implementation class="org.onosproject.intentperf.IntentPerfInstaller"/>
+</scr:component>

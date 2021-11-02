@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.netconf.client.impl.NetconfTranslatorImpl" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.netconf.client.NetconfTranslator"/>
+    </service>
+    <reference name="netconfController" interface="org.onosproject.netconf.NetconfController" cardinality="1..1" policy="static" bind="bindNetconfController" unbind="unbindNetconfController"/>
+    <reference name="yangRuntimeService" interface="org.onosproject.yang.runtime.YangRuntimeService" cardinality="1..1" policy="static" bind="bindYangRuntimeService" unbind="unbindYangRuntimeService"/>
+    <reference name="schemaContextProvider" interface="org.onosproject.yang.model.SchemaContextProvider" cardinality="1..1" policy="static" bind="bindSchemaContextProvider" unbind="unbindSchemaContextProvider"/>
+    <implementation class="org.onosproject.netconf.client.impl.NetconfTranslatorImpl"/>
+</scr:component>

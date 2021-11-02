@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.pi.impl.PiTranslationServiceImpl" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.pi.service.PiTranslationService"/>
+    </service>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="flowRuleTranslationStore" interface="org.onosproject.net.pi.service.PiFlowRuleTranslationStore" cardinality="1..1" policy="static" bind="bindFlowRuleTranslationStore" unbind="unbindFlowRuleTranslationStore"/>
+    <reference name="groupTranslationStore" interface="org.onosproject.net.pi.service.PiGroupTranslationStore" cardinality="1..1" policy="static" bind="bindGroupTranslationStore" unbind="unbindGroupTranslationStore"/>
+    <reference name="mcGroupTranslationStore" interface="org.onosproject.net.pi.service.PiMulticastGroupTranslationStore" cardinality="1..1" policy="static" bind="bindMcGroupTranslationStore" unbind="unbindMcGroupTranslationStore"/>
+    <reference name="meterTranslationStore" interface="org.onosproject.net.pi.service.PiMeterTranslationStore" cardinality="1..1" policy="static" bind="bindMeterTranslationStore" unbind="unbindMeterTranslationStore"/>
+    <implementation class="org.onosproject.net.pi.impl.PiTranslationServiceImpl"/>
+</scr:component>

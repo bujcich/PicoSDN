@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.of.group.impl.OpenFlowGroupProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="groupPollInterval" type="Integer" value="10"/>
+    <reference name="controller" interface="org.onosproject.openflow.controller.OpenFlowController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+    <reference name="providerRegistry" interface="org.onosproject.net.group.GroupProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="groupService" interface="org.onosproject.net.group.GroupService" cardinality="1..1" policy="static" bind="bindGroupService" unbind="unbindGroupService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <implementation class="org.onosproject.provider.of.group.impl.OpenFlowGroupProvider"/>
+</scr:component>

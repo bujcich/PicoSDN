@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.kafkaintegration.kafka.EventPublisher" activate="activate" deactivate="deactivate">
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="kafkaConfigService" interface="org.onosproject.kafkaintegration.api.KafkaConfigService" cardinality="1..1" policy="static" bind="bindKafkaConfigService" unbind="unbindKafkaConfigService"/>
+    <reference name="kafkaStore" interface="org.onosproject.kafkaintegration.api.KafkaEventStorageService" cardinality="1..1" policy="static" bind="bindKafkaStore" unbind="unbindKafkaStore"/>
+    <reference name="kafkaPublisher" interface="org.onosproject.kafkaintegration.api.KafkaPublisherService" cardinality="1..1" policy="static" bind="bindKafkaPublisher" unbind="unbindKafkaPublisher"/>
+    <implementation class="org.onosproject.kafkaintegration.kafka.EventPublisher"/>
+</scr:component>

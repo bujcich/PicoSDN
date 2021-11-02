@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.net.l2monitoring.cfm.impl.CfmMepManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.l2monitoring.cfm.service.CfmMepService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.incubator.net.l2monitoring.cfm.service.CfmMepServiceBase"/>
+    </service>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="cfmMdService" interface="org.onosproject.incubator.net.l2monitoring.cfm.service.CfmMdService" cardinality="1..1" policy="static" bind="bindCfmMdService" unbind="unbindCfmMdService"/>
+    <reference name="mepStore" interface="org.onosproject.incubator.net.l2monitoring.cfm.service.MepStore" cardinality="1..1" policy="static" bind="bindMepStore" unbind="unbindMepStore"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.incubator.net.l2monitoring.cfm.impl.CfmMepManager"/>
+</scr:component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.store.device.impl.GossipDeviceStore" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.device.DeviceStore"/>
+        <provide interface="org.onosproject.store.Store"/>
+    </service>
+    <reference name="deviceClockService" interface="org.onosproject.net.device.DeviceClockService" cardinality="1..1" policy="static" bind="bindDeviceClockService" unbind="unbindDeviceClockService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="termService" interface="org.onosproject.mastership.MastershipTermService" cardinality="1..1" policy="static" bind="bindTermService" unbind="unbindTermService"/>
+    <implementation class="org.onosproject.store.device.impl.GossipDeviceStore"/>
+</scr:component>

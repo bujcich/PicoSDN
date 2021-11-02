@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacknetworking.impl.OpenstackSwitchingHostProvider" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.host.HostProvider"/>
+        <provide interface="org.onosproject.net.provider.Provider"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="hostProviderRegistry" interface="org.onosproject.net.host.HostProviderRegistry" cardinality="1..1" policy="static" bind="bindHostProviderRegistry" unbind="unbindHostProviderRegistry"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="osNetworkService" interface="org.onosproject.openstacknetworking.api.OpenstackNetworkService" cardinality="1..1" policy="static" bind="bindOsNetworkService" unbind="unbindOsNetworkService"/>
+    <reference name="osNodeService" interface="org.onosproject.openstacknode.api.OpenstackNodeService" cardinality="1..1" policy="static" bind="bindOsNodeService" unbind="unbindOsNodeService"/>
+    <implementation class="org.onosproject.openstacknetworking.impl.OpenstackSwitchingHostProvider"/>
+</scr:component>

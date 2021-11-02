@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.vtnrsc.service.impl.VtnRscManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.vtnrsc.service.VtnRscService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="clockService" interface="org.onosproject.store.service.LogicalClockService" cardinality="1..1" policy="static" bind="bindClockService" unbind="unbindClockService"/>
+    <reference name="routerService" interface="org.onosproject.vtnrsc.router.RouterService" cardinality="1..1" policy="static" bind="bindRouterService" unbind="unbindRouterService"/>
+    <reference name="floatingIpService" interface="org.onosproject.vtnrsc.floatingip.FloatingIpService" cardinality="1..1" policy="static" bind="bindFloatingIpService" unbind="unbindFloatingIpService"/>
+    <reference name="routerInterfaceService" interface="org.onosproject.vtnrsc.routerinterface.RouterInterfaceService" cardinality="1..1" policy="static" bind="bindRouterInterfaceService" unbind="unbindRouterInterfaceService"/>
+    <reference name="virtualPortService" interface="org.onosproject.vtnrsc.virtualport.VirtualPortService" cardinality="1..1" policy="static" bind="bindVirtualPortService" unbind="unbindVirtualPortService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="subnetService" interface="org.onosproject.vtnrsc.subnet.SubnetService" cardinality="1..1" policy="static" bind="bindSubnetService" unbind="unbindSubnetService"/>
+    <reference name="tenantNetworkService" interface="org.onosproject.vtnrsc.tenantnetwork.TenantNetworkService" cardinality="1..1" policy="static" bind="bindTenantNetworkService" unbind="unbindTenantNetworkService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="portPairService" interface="org.onosproject.vtnrsc.portpair.PortPairService" cardinality="1..1" policy="static" bind="bindPortPairService" unbind="unbindPortPairService"/>
+    <reference name="portPairGroupService" interface="org.onosproject.vtnrsc.portpairgroup.PortPairGroupService" cardinality="1..1" policy="static" bind="bindPortPairGroupService" unbind="unbindPortPairGroupService"/>
+    <reference name="flowClassifierService" interface="org.onosproject.vtnrsc.flowclassifier.FlowClassifierService" cardinality="1..1" policy="static" bind="bindFlowClassifierService" unbind="unbindFlowClassifierService"/>
+    <reference name="portChainService" interface="org.onosproject.vtnrsc.portchain.PortChainService" cardinality="1..1" policy="static" bind="bindPortChainService" unbind="unbindPortChainService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.vtnrsc.service.impl.VtnRscManager"/>
+</scr:component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacktelemetry.impl.GrpcTelemetryManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacktelemetry.api.GrpcTelemetryAdminService"/>
+        <provide interface="org.onosproject.openstacktelemetry.api.TelemetryAdminService"/>
+        <provide interface="org.onosproject.openstacktelemetry.api.TelemetryService"/>
+        <provide interface="org.onosproject.openstacktelemetry.api.GrpcTelemetryService"/>
+    </service>
+    <reference name="openstackTelemetryService" interface="org.onosproject.openstacktelemetry.api.OpenstackTelemetryService" cardinality="1..1" policy="static" bind="bindOpenstackTelemetryService" unbind="unbindOpenstackTelemetryService"/>
+    <implementation class="org.onosproject.openstacktelemetry.impl.GrpcTelemetryManager"/>
+</scr:component>

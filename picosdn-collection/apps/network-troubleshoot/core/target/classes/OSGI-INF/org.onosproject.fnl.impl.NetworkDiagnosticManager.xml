@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.fnl.impl.NetworkDiagnosticManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="autoRegisterDefaultDiagnostics" type="Boolean" value="true"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.fnl.intf.NetworkDiagnosticService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="ds" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDs" unbind="unbindDs"/>
+    <reference name="hs" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHs" unbind="unbindHs"/>
+    <reference name="frs" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFrs" unbind="unbindFrs"/>
+    <reference name="ls" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLs" unbind="unbindLs"/>
+    <implementation class="org.onosproject.fnl.impl.NetworkDiagnosticManager"/>
+</scr:component>

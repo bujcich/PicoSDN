@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.packet.impl.PacketManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.packet.PacketService"/>
+        <provide interface="org.onosproject.net.packet.PacketProviderRegistry"/>
+        <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="store" interface="org.onosproject.net.packet.PacketStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="objectiveService" interface="org.onosproject.net.flowobjective.FlowObjectiveService" cardinality="1..1" policy="static" bind="bindObjectiveService" unbind="unbindObjectiveService"/>
+    <implementation class="org.onosproject.net.packet.impl.PacketManager"/>
+</scr:component>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.virtualbng.VirtualPublicHosts" activate="activate" deactivate="deactivate">
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="vbngConfigService" interface="org.onosproject.virtualbng.VbngConfigurationService" cardinality="1..1" policy="static" bind="bindVbngConfigService" unbind="unbindVbngConfigService"/>
+    <implementation class="org.onosproject.virtualbng.VirtualPublicHosts"/>
+</scr:component>

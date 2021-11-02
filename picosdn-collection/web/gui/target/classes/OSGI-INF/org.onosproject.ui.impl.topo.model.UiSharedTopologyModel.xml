@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="org.onosproject.ui.impl.topo.model.UiSharedTopologyModel" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.ui.impl.topo.model.UiSharedTopologyModel"/>
+    </service>
+    <reference name="layoutService" interface="org.onosproject.ui.UiTopoLayoutService" cardinality="1..1" policy="static" bind="bindLayoutService" unbind="unbindLayoutService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="regionService" interface="org.onosproject.net.region.RegionService" cardinality="1..1" policy="static" bind="bindRegionService" unbind="unbindRegionService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="intentService" interface="org.onosproject.net.intent.IntentService" cardinality="1..1" policy="static" bind="bindIntentService" unbind="unbindIntentService"/>
+    <reference name="flowService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowService" unbind="unbindFlowService"/>
+    <reference name="flowStatsService" interface="org.onosproject.net.statistic.StatisticService" cardinality="1..1" policy="static" bind="bindFlowStatsService" unbind="unbindFlowStatsService"/>
+    <reference name="portStatsService" interface="org.onosproject.incubator.net.PortStatisticsService" cardinality="1..1" policy="static" bind="bindPortStatsService" unbind="unbindPortStatsService"/>
+    <reference name="topologyService" interface="org.onosproject.net.topology.TopologyService" cardinality="1..1" policy="static" bind="bindTopologyService" unbind="unbindTopologyService"/>
+    <reference name="tunnelService" interface="org.onosproject.incubator.net.tunnel.TunnelService" cardinality="1..1" policy="static" bind="bindTunnelService" unbind="unbindTunnelService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.ui.impl.topo.model.UiSharedTopologyModel"/>
+</scr:component>

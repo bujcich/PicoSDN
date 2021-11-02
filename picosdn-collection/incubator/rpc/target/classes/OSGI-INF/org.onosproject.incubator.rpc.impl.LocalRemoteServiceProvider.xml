@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.rpc.impl.LocalRemoteServiceProvider" activate="activate" deactivate="deactivate">
+    <reference name="rpcRegistry" interface="org.onosproject.incubator.rpc.RemoteServiceProviderRegistry" cardinality="1..1" policy="static" bind="bindRpcRegistry" unbind="unbindRpcRegistry"/>
+    <implementation class="org.onosproject.incubator.rpc.impl.LocalRemoteServiceProvider"/>
+</scr:component>

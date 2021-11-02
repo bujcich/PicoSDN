@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.pcep.tunnel.impl.PcepTunnelProvider" activate="activate" deactivate="deactivate">
+    <property name="tunnelStatsPollFrequency" type="Integer" value="10"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.tunnel.TunnelProvider"/>
+        <provide interface="org.onosproject.net.provider.Provider"/>
+    </service>
+    <reference name="tunnelProviderRegistry" interface="org.onosproject.incubator.net.tunnel.TunnelProviderRegistry" cardinality="1..1" policy="static" bind="bindTunnelProviderRegistry" unbind="unbindTunnelProviderRegistry"/>
+    <reference name="controller" interface="org.onosproject.pcep.api.PcepController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+    <reference name="pcepClientController" interface="org.onosproject.pcep.server.PcepClientController" cardinality="1..1" policy="static" bind="bindPcepClientController" unbind="unbindPcepClientController"/>
+    <reference name="tunnelService" interface="org.onosproject.incubator.net.tunnel.TunnelService" cardinality="1..1" policy="static" bind="bindTunnelService" unbind="unbindTunnelService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="tunnelAdminService" interface="org.onosproject.incubator.net.tunnel.TunnelAdminService" cardinality="1..1" policy="static" bind="bindTunnelAdminService" unbind="unbindTunnelAdminService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <implementation class="org.onosproject.provider.pcep.tunnel.impl.PcepTunnelProvider"/>
+</scr:component>

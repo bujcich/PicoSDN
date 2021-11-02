@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="flowPollFrequency" type="Integer" value="5"/>
+    <property name="adaptiveFlowSampling" type="Boolean" value="false"/>
+    <reference name="providerRegistry" interface="org.onosproject.net.flow.FlowRuleProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="controller" interface="org.onosproject.openflow.controller.OpenFlowController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <implementation class="org.onosproject.provider.of.flow.impl.OpenFlowRuleProvider"/>
+</scr:component>

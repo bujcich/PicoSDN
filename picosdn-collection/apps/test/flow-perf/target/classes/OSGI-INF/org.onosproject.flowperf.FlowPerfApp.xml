@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="org.onosproject.flowperf.FlowPerfApp" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="totalFlows" type="Integer" value="100000"/>
+    <property name="batchSize" type="Integer" value="200"/>
+    <property name="totalThreads" type="Integer" value="1"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.flowperf.FlowPerfApp"/>
+    </service>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <implementation class="org.onosproject.flowperf.FlowPerfApp"/>
+</scr:component>

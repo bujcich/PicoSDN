@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.onosproject.dhcprelay.Dhcp6HandlerImpl" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="version" value="6"/>
+    <property name="learnRouteFromLeasequery" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.dhcprelay.api.DhcpHandler"/>
+        <provide interface="org.onosproject.net.host.HostProvider"/>
+        <provide interface="org.onosproject.net.provider.Provider"/>
+    </service>
+    <reference name="dhcpRelayStore" interface="org.onosproject.dhcprelay.store.DhcpRelayStore" cardinality="1..1" policy="static" bind="bindDhcpRelayStore" unbind="unbindDhcpRelayStore"/>
+    <reference name="dhcpRelayCountersStore" interface="org.onosproject.dhcprelay.store.DhcpRelayCountersStore" cardinality="1..1" policy="static" bind="bindDhcpRelayCountersStore" unbind="unbindDhcpRelayCountersStore"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="routeStore" interface="org.onosproject.routeservice.RouteStore" cardinality="1..1" policy="static" bind="bindRouteStore" unbind="unbindRouteStore"/>
+    <reference name="interfaceService" interface="org.onosproject.net.intf.InterfaceService" cardinality="1..1" policy="static" bind="bindInterfaceService" unbind="unbindInterfaceService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="providerRegistry" interface="org.onosproject.net.host.HostProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="dhcpFpmPrefixStore" interface="org.onosproject.dhcprelay.store.DhcpFpmPrefixStore" cardinality="1..1" policy="static" bind="bindDhcpFpmPrefixStore" unbind="unbindDhcpFpmPrefixStore"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="flowObjectiveService" interface="org.onosproject.net.flowobjective.FlowObjectiveService" cardinality="1..1" policy="static" bind="bindFlowObjectiveService" unbind="unbindFlowObjectiveService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <implementation class="org.onosproject.dhcprelay.Dhcp6HandlerImpl"/>
+</scr:component>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.vrouter.Vrouter" activate="activate" deactivate="deactivate">
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="componentService" interface="org.onosproject.component.ComponentService" cardinality="1..1" policy="static" bind="bindComponentService" unbind="unbindComponentService"/>
+    <implementation class="org.onosproject.vrouter.Vrouter"/>
+</scr:component>

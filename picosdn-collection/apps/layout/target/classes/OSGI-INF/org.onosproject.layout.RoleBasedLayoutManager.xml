@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.layout.RoleBasedLayoutManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.layout.RoleBasedLayoutManager"/>
+    </service>
+    <reference name="networkConfigService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetworkConfigService" unbind="unbindNetworkConfigService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="uiExtensionService" interface="org.onosproject.ui.UiExtensionService" cardinality="1..1" policy="static" bind="bindUiExtensionService" unbind="unbindUiExtensionService"/>
+    <implementation class="org.onosproject.layout.RoleBasedLayoutManager"/>
+</scr:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="org.onosproject.transactionperf.TransactionPerfApp" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="mapName" value="transaction-perf"/>
+    <property name="readPercentage" type="Double" value="0.9"/>
+    <property name="totalOperationsPerTransaction" type="Integer" value="1000"/>
+    <property name="withContention" type="Boolean" value="false"/>
+    <property name="withRetries" type="Boolean" value="false"/>
+    <property name="reportIntervalSeconds" type="Integer" value="1"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.transactionperf.TransactionPerfApp"/>
+    </service>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <implementation class="org.onosproject.transactionperf.TransactionPerfApp"/>
+</scr:component>

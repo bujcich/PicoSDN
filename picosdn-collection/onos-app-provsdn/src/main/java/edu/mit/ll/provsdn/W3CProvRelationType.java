@@ -1,0 +1,6 @@
+package edu.mit.ll.provsdn;
+
+public enum W3CProvRelationType {
+    USED, WAS_GENERATED_BY, WAS_DERIVED_FROM, WAS_INFORMED_BY,
+    WAS_ASSOCIATED_WITH, ACTED_ON_BEHALF_OF, INVALIDATES, WAS_REVISION_OF
+}

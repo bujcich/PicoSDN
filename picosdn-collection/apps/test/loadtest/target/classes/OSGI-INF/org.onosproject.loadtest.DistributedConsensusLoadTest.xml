@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.loadtest.DistributedConsensusLoadTest" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="rate" type="Integer" value="100"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.loadtest.DistributedConsensusLoadTest"/>
+    </service>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <implementation class="org.onosproject.loadtest.DistributedConsensusLoadTest"/>
+</scr:component>

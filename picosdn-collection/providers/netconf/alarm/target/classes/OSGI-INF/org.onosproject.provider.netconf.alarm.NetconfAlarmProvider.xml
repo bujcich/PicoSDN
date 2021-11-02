@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.netconf.alarm.NetconfAlarmProvider" activate="activate" deactivate="deactivate">
+    <reference name="providerRegistry" interface="org.onosproject.incubator.net.faultmanagement.alarm.AlarmProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="controller" interface="org.onosproject.netconf.NetconfController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+    <implementation class="org.onosproject.provider.netconf.alarm.NetconfAlarmProvider"/>
+</scr:component>

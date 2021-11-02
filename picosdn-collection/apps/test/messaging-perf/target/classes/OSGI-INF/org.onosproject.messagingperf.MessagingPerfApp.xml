@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="true" immediate="true" name="org.onosproject.messagingperf.MessagingPerfApp" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="totalSenderThreads" type="Integer" value="2"/>
+    <property name="totalReceiverThreads" type="Integer" value="2"/>
+    <property name="serializationOn" type="Boolean" value="true"/>
+    <property name="receiveOnIOLoopThread" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.messagingperf.MessagingPerfApp"/>
+    </service>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="communicationService" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindCommunicationService" unbind="unbindCommunicationService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <implementation class="org.onosproject.messagingperf.MessagingPerfApp"/>
+</scr:component>

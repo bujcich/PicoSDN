@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.drivers.optical.OpticalDriversLoader" activate="activate" deactivate="deactivate">
+    <reference name="registry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindRegistry" unbind="unbindRegistry"/>
+    <reference name="defaultDriverProviderService" interface="org.onosproject.net.driver.DefaultDriverProviderService" cardinality="1..1" policy="static" bind="bindDefaultDriverProviderService" unbind="unbindDefaultDriverProviderService"/>
+    <reference name="driverAdminService" interface="org.onosproject.net.driver.DriverAdminService" cardinality="1..1" policy="static" bind="bindDriverAdminService" unbind="unbindDriverAdminService"/>
+    <implementation class="org.onosproject.drivers.optical.OpticalDriversLoader"/>
+</scr:component>

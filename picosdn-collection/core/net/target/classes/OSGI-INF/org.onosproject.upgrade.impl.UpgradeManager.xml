@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.upgrade.impl.UpgradeManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.upgrade.UpgradeService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.upgrade.UpgradeAdminService"/>
+    </service>
+    <reference name="versionService" interface="org.onosproject.core.VersionService" cardinality="1..1" policy="static" bind="bindVersionService" unbind="unbindVersionService"/>
+    <reference name="coordinationService" interface="org.onosproject.store.service.CoordinationService" cardinality="1..1" policy="static" bind="bindCoordinationService" unbind="unbindCoordinationService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="membershipService" interface="org.onosproject.cluster.MembershipService" cardinality="1..1" policy="static" bind="bindMembershipService" unbind="unbindMembershipService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.upgrade.impl.UpgradeManager"/>
+</scr:component>

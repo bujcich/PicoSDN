@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.kafkaintegration.impl.EventSubscriptionManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.kafkaintegration.api.EventSubscriptionService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="kafkaConfigService" interface="org.onosproject.kafkaintegration.api.KafkaConfigService" cardinality="1..1" policy="static" bind="bindKafkaConfigService" unbind="unbindKafkaConfigService"/>
+    <implementation class="org.onosproject.kafkaintegration.impl.EventSubscriptionManager"/>
+</scr:component>

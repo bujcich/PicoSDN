@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.rpc.grpc.GrpcRemoteServiceServer" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="listenPort" type="Integer" value="11984"/>
+    <reference name="deviceProviderRegistry" interface="org.onosproject.net.device.DeviceProviderRegistry" cardinality="1..1" policy="static" bind="bindDeviceProviderRegistry" unbind="unbindDeviceProviderRegistry"/>
+    <reference name="linkProviderRegistry" interface="org.onosproject.net.link.LinkProviderRegistry" cardinality="1..1" policy="static" bind="bindLinkProviderRegistry" unbind="unbindLinkProviderRegistry"/>
+    <implementation class="org.onosproject.incubator.rpc.grpc.GrpcRemoteServiceServer"/>
+</scr:component>

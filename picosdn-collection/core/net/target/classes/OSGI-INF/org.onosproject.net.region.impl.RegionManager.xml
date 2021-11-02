@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.region.impl.RegionManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.region.RegionAdminService"/>
+        <provide interface="org.onosproject.net.region.RegionService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+    </service>
+    <reference name="store" interface="org.onosproject.net.region.RegionStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="networkConfigService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetworkConfigService" unbind="unbindNetworkConfigService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.net.region.impl.RegionManager"/>
+</scr:component>

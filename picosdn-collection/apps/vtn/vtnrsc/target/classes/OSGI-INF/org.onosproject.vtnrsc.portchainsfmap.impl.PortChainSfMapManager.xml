@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.vtnrsc.portchainsfmap.impl.PortChainSfMapManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.vtnrsc.portchainsfmap.PortChainSfMapService"/>
+    </service>
+    <reference name="portChainService" interface="org.onosproject.vtnrsc.portchain.PortChainService" cardinality="1..1" policy="static" bind="bindPortChainService" unbind="unbindPortChainService"/>
+    <reference name="portPairGroupService" interface="org.onosproject.vtnrsc.portpairgroup.PortPairGroupService" cardinality="1..1" policy="static" bind="bindPortPairGroupService" unbind="unbindPortPairGroupService"/>
+    <reference name="portPairService" interface="org.onosproject.vtnrsc.portpair.PortPairService" cardinality="1..1" policy="static" bind="bindPortPairService" unbind="unbindPortPairService"/>
+    <implementation class="org.onosproject.vtnrsc.portchainsfmap.impl.PortChainSfMapManager"/>
+</scr:component>

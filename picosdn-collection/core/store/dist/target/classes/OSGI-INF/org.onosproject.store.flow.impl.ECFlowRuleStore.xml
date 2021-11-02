@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.store.flow.impl.ECFlowRuleStore" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="msgHandlerPoolSize" type="Integer" value="8"/>
+    <property name="backupPeriod" type="Integer" value="2000"/>
+    <property name="antiEntropyPeriod" type="Integer" value="5000"/>
+    <property name="persistenceEnabled" type="Boolean" value="false"/>
+    <property name="backupCount" type="Integer" value="2"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.flow.FlowRuleStore"/>
+        <provide interface="org.onosproject.store.Store"/>
+    </service>
+    <reference name="replicaInfoManager" interface="org.onosproject.store.flow.ReplicaInfoService" cardinality="1..1" policy="static" bind="bindReplicaInfoManager" unbind="unbindReplicaInfoManager"/>
+    <reference name="clusterCommunicator" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindClusterCommunicator" unbind="unbindClusterCommunicator"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="persistenceService" interface="org.onosproject.persistence.PersistenceService" cardinality="1..1" policy="static" bind="bindPersistenceService" unbind="unbindPersistenceService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <implementation class="org.onosproject.store.flow.impl.ECFlowRuleStore"/>
+</scr:component>

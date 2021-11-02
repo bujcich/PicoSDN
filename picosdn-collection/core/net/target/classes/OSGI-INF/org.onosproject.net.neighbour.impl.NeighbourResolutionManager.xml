@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.neighbour.impl.NeighbourResolutionManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="arpEnabled" type="Boolean" value="true"/>
+    <property name="ndpEnabled" type="Boolean" value="false"/>
+    <property name="requestInterceptsEnabled" type="Boolean" value="true"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.neighbour.NeighbourResolutionService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="edgeService" interface="org.onosproject.net.edge.EdgePortService" cardinality="1..1" policy="static" bind="bindEdgeService" unbind="unbindEdgeService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <implementation class="org.onosproject.net.neighbour.impl.NeighbourResolutionManager"/>
+</scr:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.actn.mdsc.tetunnelctl.TeTunnelCtl" activate="activate" deactivate="deactivate">
+    <reference name="tunnelService" interface="org.onosproject.incubator.net.tunnel.TunnelService" cardinality="1..1" policy="static" bind="bindTunnelService" unbind="unbindTunnelService"/>
+    <reference name="tunnelAdminService" interface="org.onosproject.incubator.net.tunnel.TunnelAdminService" cardinality="1..1" policy="static" bind="bindTunnelAdminService" unbind="unbindTunnelAdminService"/>
+    <reference name="teTunnelService" interface="org.onosproject.tetunnel.api.TeTunnelService" cardinality="1..1" policy="static" bind="bindTeTunnelService" unbind="unbindTeTunnelService"/>
+    <reference name="teTunnelAdminService" interface="org.onosproject.tetunnel.api.TeTunnelAdminService" cardinality="1..1" policy="static" bind="bindTeTunnelAdminService" unbind="unbindTeTunnelAdminService"/>
+    <reference name="teTopologyService" interface="org.onosproject.tetopology.management.api.TeTopologyService" cardinality="1..1" policy="static" bind="bindTeTopologyService" unbind="unbindTeTopologyService"/>
+    <reference name="teTunnelPceService" interface="org.onosproject.actn.mdsc.pce.TeTunnelPceService" cardinality="1..1" policy="static" bind="bindTeTunnelPceService" unbind="unbindTeTunnelPceService"/>
+    <implementation class="org.onosproject.actn.mdsc.tetunnelctl.TeTunnelCtl"/>
+</scr:component>

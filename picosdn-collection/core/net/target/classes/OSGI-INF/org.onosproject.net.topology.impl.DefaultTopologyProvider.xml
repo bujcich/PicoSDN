@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.topology.impl.DefaultTopologyProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="maxEvents" type="Integer" value="1000"/>
+    <property name="maxIdleMs" type="Integer" value="10"/>
+    <property name="maxBatchMs" type="Integer" value="50"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.topology.TopologyProvider"/>
+        <provide interface="org.onosproject.net.provider.Provider"/>
+    </service>
+    <reference name="providerRegistry" interface="org.onosproject.net.topology.TopologyProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <implementation class="org.onosproject.net.topology.impl.DefaultTopologyProvider"/>
+</scr:component>

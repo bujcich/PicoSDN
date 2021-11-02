@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.dhcprelay.DhcpRelayManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="arpEnabled" type="Boolean" value="true"/>
+    <property name="dhcpPollInterval" type="Integer" value="86400"/>
+    <property name="dhcpFpmEnabled" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.dhcprelay.api.DhcpRelayService"/>
+    </service>
+    <reference name="cfgService" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="interfaceService" interface="org.onosproject.net.intf.InterfaceService" cardinality="1..1" policy="static" bind="bindInterfaceService" unbind="unbindInterfaceService"/>
+    <reference name="dhcpRelayStore" interface="org.onosproject.dhcprelay.store.DhcpRelayStore" cardinality="1..1" policy="static" bind="bindDhcpRelayStore" unbind="unbindDhcpRelayStore"/>
+    <reference name="compCfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCompCfgService" unbind="unbindCompCfgService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="dhcpFpmPrefixStore" interface="org.onosproject.dhcprelay.store.DhcpFpmPrefixStore" cardinality="1..1" policy="static" bind="bindDhcpFpmPrefixStore" unbind="unbindDhcpFpmPrefixStore"/>
+    <reference name="v4Handler" interface="org.onosproject.dhcprelay.api.DhcpHandler" cardinality="1..1" policy="static" target="(version=4)" bind="bindV4Handler" unbind="unbindV4Handler"/>
+    <reference name="v6Handler" interface="org.onosproject.dhcprelay.api.DhcpHandler" cardinality="1..1" policy="static" target="(version=6)" bind="bindV6Handler" unbind="unbindV6Handler"/>
+    <implementation class="org.onosproject.dhcprelay.DhcpRelayManager"/>
+</scr:component>

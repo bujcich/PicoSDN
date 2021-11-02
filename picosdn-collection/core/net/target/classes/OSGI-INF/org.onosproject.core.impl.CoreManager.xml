@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.core.impl.CoreManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="sharedThreadPoolSize" type="Integer" value="30"/>
+    <property name="maxEventTimeLimit" type="Integer" value="2000"/>
+    <property name="sharedThreadPerformanceCheck" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.core.CoreService"/>
+    </service>
+    <reference name="versionService" interface="org.onosproject.core.VersionService" cardinality="1..1" policy="static" bind="bindVersionService" unbind="unbindVersionService"/>
+    <reference name="applicationIdStore" interface="org.onosproject.app.ApplicationIdStore" cardinality="1..1" policy="static" bind="bindApplicationIdStore" unbind="unbindApplicationIdStore"/>
+    <reference name="idBlockStore" interface="org.onosproject.core.IdBlockStore" cardinality="1..1" policy="static" bind="bindIdBlockStore" unbind="unbindIdBlockStore"/>
+    <reference name="appService" interface="org.onosproject.app.ApplicationService" cardinality="1..1" policy="static" bind="bindAppService" unbind="unbindAppService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="eventDeliveryService" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDeliveryService" unbind="unbindEventDeliveryService"/>
+    <reference name="metricsService" interface="org.onlab.metrics.MetricsService" cardinality="1..1" policy="static" bind="bindMetricsService" unbind="unbindMetricsService"/>
+    <implementation class="org.onosproject.core.impl.CoreManager"/>
+</scr:component>

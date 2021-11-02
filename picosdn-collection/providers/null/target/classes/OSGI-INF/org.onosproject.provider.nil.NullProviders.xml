@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.nil.NullProviders" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="enabled" type="Boolean" value="false"/>
+    <property name="topoShape" value="configured"/>
+    <property name="deviceCount" type="Integer" value="10"/>
+    <property name="hostCount" type="Integer" value="5"/>
+    <property name="packetRate" type="Integer" value="0"/>
+    <property name="mutationRate" type="Double" value="0.0"/>
+    <property name="mastership" value="random"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.provider.nil.NullProviders"/>
+    </service>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipAdminService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="cfgService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindCfgService" unbind="unbindCfgService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceAdminService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="linkService" interface="org.onosproject.net.link.LinkService" cardinality="1..1" policy="static" bind="bindLinkService" unbind="unbindLinkService"/>
+    <reference name="deviceProviderRegistry" interface="org.onosproject.net.device.DeviceProviderRegistry" cardinality="1..1" policy="static" bind="bindDeviceProviderRegistry" unbind="unbindDeviceProviderRegistry"/>
+    <reference name="hostProviderRegistry" interface="org.onosproject.net.host.HostProviderRegistry" cardinality="1..1" policy="static" bind="bindHostProviderRegistry" unbind="unbindHostProviderRegistry"/>
+    <reference name="linkProviderRegistry" interface="org.onosproject.net.link.LinkProviderRegistry" cardinality="1..1" policy="static" bind="bindLinkProviderRegistry" unbind="unbindLinkProviderRegistry"/>
+    <reference name="flowRuleProviderRegistry" interface="org.onosproject.net.flow.FlowRuleProviderRegistry" cardinality="1..1" policy="static" bind="bindFlowRuleProviderRegistry" unbind="unbindFlowRuleProviderRegistry"/>
+    <reference name="groupProviderRegistry" interface="org.onosproject.net.group.GroupProviderRegistry" cardinality="1..1" policy="static" bind="bindGroupProviderRegistry" unbind="unbindGroupProviderRegistry"/>
+    <reference name="packetProviderRegistry" interface="org.onosproject.net.packet.PacketProviderRegistry" cardinality="1..1" policy="static" bind="bindPacketProviderRegistry" unbind="unbindPacketProviderRegistry"/>
+    <implementation class="org.onosproject.provider.nil.NullProviders"/>
+</scr:component>

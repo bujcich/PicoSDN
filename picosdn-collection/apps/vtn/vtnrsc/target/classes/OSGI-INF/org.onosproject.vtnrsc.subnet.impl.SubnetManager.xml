@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.vtnrsc.subnet.impl.SubnetManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.vtnrsc.subnet.SubnetService"/>
+    </service>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="tenantNetworkService" interface="org.onosproject.vtnrsc.tenantnetwork.TenantNetworkService" cardinality="1..1" policy="static" bind="bindTenantNetworkService" unbind="unbindTenantNetworkService"/>
+    <implementation class="org.onosproject.vtnrsc.subnet.impl.SubnetManager"/>
+</scr:component>

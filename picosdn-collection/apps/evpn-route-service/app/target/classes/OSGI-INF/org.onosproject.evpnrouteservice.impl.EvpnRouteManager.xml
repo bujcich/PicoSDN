@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="org.onosproject.evpnrouteservice.impl.EvpnRouteManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.evpnrouteservice.EvpnRouteService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.evpnrouteservice.EvpnRouteAdminService"/>
+    </service>
+    <reference name="evpnRouteStore" interface="org.onosproject.evpnrouteservice.EvpnRouteStore" cardinality="1..1" policy="static" bind="bindEvpnRouteStore" unbind="unbindEvpnRouteStore"/>
+    <implementation class="org.onosproject.evpnrouteservice.impl.EvpnRouteManager"/>
+</scr:component>

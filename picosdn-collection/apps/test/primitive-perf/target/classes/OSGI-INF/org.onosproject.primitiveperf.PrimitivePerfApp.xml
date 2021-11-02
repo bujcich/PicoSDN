@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.primitiveperf.PrimitivePerfApp" activate="activate" deactivate="deactivate" modified="modify">
+    <property name="numClients" type="Integer" value="8"/>
+    <property name="writePercentage" type="Integer" value="100"/>
+    <property name="numKeys" type="Integer" value="100000"/>
+    <property name="keyLength" type="Integer" value="32"/>
+    <property name="numValues" type="Integer" value="100"/>
+    <property name="valueLength" type="Integer" value="1024"/>
+    <property name="includeEvents" type="Boolean" value="false"/>
+    <property name="deterministic" type="Boolean" value="true"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.primitiveperf.PrimitivePerfApp"/>
+    </service>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="sampleCollector" interface="org.onosproject.primitiveperf.PrimitivePerfCollector" cardinality="1..1" policy="static" bind="bindSampleCollector" unbind="unbindSampleCollector"/>
+    <implementation class="org.onosproject.primitiveperf.PrimitivePerfApp"/>
+</scr:component>

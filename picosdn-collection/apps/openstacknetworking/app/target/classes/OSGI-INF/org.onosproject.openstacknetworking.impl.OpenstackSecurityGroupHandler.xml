@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacknetworking.impl.OpenstackSecurityGroupHandler" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="useSecurityGroup" type="Boolean" value="false"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="instancePortService" interface="org.onosproject.openstacknetworking.api.InstancePortService" cardinality="1..1" policy="static" bind="bindInstancePortService" unbind="unbindInstancePortService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="osNetService" interface="org.onosproject.openstacknetworking.api.OpenstackNetworkService" cardinality="1..1" policy="static" bind="bindOsNetService" unbind="unbindOsNetService"/>
+    <reference name="securityGroupService" interface="org.onosproject.openstacknetworking.api.OpenstackSecurityGroupService" cardinality="1..1" policy="static" bind="bindSecurityGroupService" unbind="unbindSecurityGroupService"/>
+    <reference name="osFlowRuleService" interface="org.onosproject.openstacknetworking.api.OpenstackFlowRuleService" cardinality="1..1" policy="static" bind="bindOsFlowRuleService" unbind="unbindOsFlowRuleService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="osNodeService" interface="org.onosproject.openstacknode.api.OpenstackNodeService" cardinality="1..1" policy="static" bind="bindOsNodeService" unbind="unbindOsNodeService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="leadershipService" interface="org.onosproject.cluster.LeadershipService" cardinality="1..1" policy="static" bind="bindLeadershipService" unbind="unbindLeadershipService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <implementation class="org.onosproject.openstacknetworking.impl.OpenstackSecurityGroupHandler"/>
+</scr:component>

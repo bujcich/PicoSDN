@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.acl.impl.DistributedAclStore" activate="activate" deactivate="deactive">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.acl.AclStore"/>
+        <provide interface="org.onosproject.store.Store"/>
+    </service>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <implementation class="org.onosproject.acl.impl.DistributedAclStore"/>
+</scr:component>

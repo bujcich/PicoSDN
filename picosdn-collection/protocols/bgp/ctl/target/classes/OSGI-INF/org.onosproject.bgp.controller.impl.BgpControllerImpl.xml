@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.bgp.controller.impl.BgpControllerImpl" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.bgp.controller.BgpController"/>
+    </service>
+    <implementation class="org.onosproject.bgp.controller.impl.BgpControllerImpl"/>
+</scr:component>

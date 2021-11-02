@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.tetunnel.impl.TeTunnelManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.tetunnel.api.TeTunnelService"/>
+        <provide interface="org.onosproject.tetunnel.api.TeTunnelAdminService"/>
+        <provide interface="org.onosproject.tetunnel.api.TeTunnelProviderService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="store" interface="org.onosproject.tetunnel.api.TeTunnelStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="tunnelService" interface="org.onosproject.incubator.net.tunnel.TunnelService" cardinality="1..1" policy="static" bind="bindTunnelService" unbind="unbindTunnelService"/>
+    <reference name="tunnelAdminService" interface="org.onosproject.incubator.net.tunnel.TunnelAdminService" cardinality="1..1" policy="static" bind="bindTunnelAdminService" unbind="unbindTunnelAdminService"/>
+    <reference name="teTopologyService" interface="org.onosproject.tetopology.management.api.TeTopologyService" cardinality="1..1" policy="static" bind="bindTeTopologyService" unbind="unbindTeTopologyService"/>
+    <implementation class="org.onosproject.tetunnel.impl.TeTunnelManager"/>
+</scr:component>

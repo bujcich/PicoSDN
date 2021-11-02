@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.component.impl.ComponentManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.component.ComponentService"/>
+    </service>
+    <reference name="scrService" interface="org.apache.felix.scr.ScrService" cardinality="1..1" policy="static" bind="bindScrService" unbind="unbindScrService"/>
+    <implementation class="org.onosproject.component.impl.ComponentManager"/>
+</scr:component>

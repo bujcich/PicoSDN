@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.routing.fpm.FpmManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="clearRoutes" type="Boolean" value="true"/>
+    <property name="pdPushEnabled" type="Boolean" value="false"/>
+    <property name="pdPushNextHopIPv4" value=""/>
+    <property name="pdPushNextHopIPv6" value=""/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.routing.fpm.FpmInfoService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="routeService" interface="org.onosproject.routeservice.RouteAdminService" cardinality="1..1" policy="static" bind="bindRouteService" unbind="unbindRouteService"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="interfaceService" interface="org.onosproject.net.intf.InterfaceService" cardinality="1..1" policy="static" bind="bindInterfaceService" unbind="unbindInterfaceService"/>
+    <reference name="ripStore" interface="org.onosproject.routing.fpm.api.FpmPrefixStore" cardinality="0..1" policy="dynamic" target="(fpm_type=RIP)" bind="bindRipStore" unbind="unbindRipStore"/>
+    <reference name="dhcpStore" interface="org.onosproject.routing.fpm.api.FpmPrefixStore" cardinality="0..1" policy="dynamic" target="(fpm_type=DHCP)" bind="bindDhcpStore" unbind="unbindDhcpStore"/>
+    <implementation class="org.onosproject.routing.fpm.FpmManager"/>
+</scr:component>

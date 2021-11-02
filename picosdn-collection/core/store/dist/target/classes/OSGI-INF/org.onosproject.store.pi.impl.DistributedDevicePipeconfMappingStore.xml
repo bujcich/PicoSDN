@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.store.pi.impl.DistributedDevicePipeconfMappingStore" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.pi.service.PiPipeconfMappingStore"/>
+        <provide interface="org.onosproject.store.Store"/>
+    </service>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <implementation class="org.onosproject.store.pi.impl.DistributedDevicePipeconfMappingStore"/>
+</scr:component>

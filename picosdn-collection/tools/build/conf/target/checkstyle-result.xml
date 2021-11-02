@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.10">
+<file name="/home/benjaminujcich/gitlab/provsdn2/tools/build/conf/src/main/java/org/onosproject/buckdaemon/BuckDaemon.java">
+<error line="0" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+</file>
+<file name="/home/benjaminujcich/gitlab/provsdn2/tools/build/conf/src/main/java/org/onosproject/buckdaemon/BuckTaskContext.java">
+</file>
+<file name="/home/benjaminujcich/gitlab/provsdn2/tools/build/conf/src/main/java/org/onosproject/buckdaemon/BuckTask.java">
+</file>
+<file name="/home/benjaminujcich/gitlab/provsdn2/tools/build/conf/src/main/java/org/onosproject/checkstyle/package-info.java">
+</file>
+<file name="/home/benjaminujcich/gitlab/provsdn2/tools/build/conf/src/main/java/org/onosproject/checkstyle/CheckstyleRunner.java">
+<error line="103" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
+</file>
+</checkstyle>

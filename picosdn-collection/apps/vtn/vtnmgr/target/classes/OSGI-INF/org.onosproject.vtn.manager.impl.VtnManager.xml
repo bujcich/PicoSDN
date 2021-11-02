@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.vtn.manager.impl.VtnManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.vtn.manager.VtnService"/>
+    </service>
+    <reference name="configService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="storageService" interface="org.onosproject.store.service.StorageService" cardinality="1..1" policy="static" bind="bindStorageService" unbind="unbindStorageService"/>
+    <reference name="tenantNetworkService" interface="org.onosproject.vtnrsc.tenantnetwork.TenantNetworkService" cardinality="1..1" policy="static" bind="bindTenantNetworkService" unbind="unbindTenantNetworkService"/>
+    <reference name="virtualPortService" interface="org.onosproject.vtnrsc.virtualport.VirtualPortService" cardinality="1..1" policy="static" bind="bindVirtualPortService" unbind="unbindVirtualPortService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="clockService" interface="org.onosproject.store.service.LogicalClockService" cardinality="1..1" policy="static" bind="bindClockService" unbind="unbindClockService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="groupService" interface="org.onosproject.net.group.GroupService" cardinality="1..1" policy="static" bind="bindGroupService" unbind="unbindGroupService"/>
+    <reference name="subnetService" interface="org.onosproject.vtnrsc.subnet.SubnetService" cardinality="1..1" policy="static" bind="bindSubnetService" unbind="unbindSubnetService"/>
+    <reference name="vtnRscService" interface="org.onosproject.vtnrsc.service.VtnRscService" cardinality="1..1" policy="static" bind="bindVtnRscService" unbind="unbindVtnRscService"/>
+    <reference name="floatingIpService" interface="org.onosproject.vtnrsc.floatingip.FloatingIpService" cardinality="1..1" policy="static" bind="bindFloatingIpService" unbind="unbindFloatingIpService"/>
+    <reference name="routerInterfaceService" interface="org.onosproject.vtnrsc.routerinterface.RouterInterfaceService" cardinality="1..1" policy="static" bind="bindRouterInterfaceService" unbind="unbindRouterInterfaceService"/>
+    <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="networkConfigService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetworkConfigService" unbind="unbindNetworkConfigService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <implementation class="org.onosproject.vtn.manager.impl.VtnManager"/>
+</scr:component>

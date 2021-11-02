@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.device.impl.DeviceManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.device.DeviceService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.net.device.DeviceAdminService"/>
+        <provide interface="org.onosproject.net.device.DeviceProviderRegistry"/>
+        <provide interface="org.onosproject.net.provider.ProviderRegistry"/>
+        <provide interface="org.onosproject.net.config.PortConfigOperatorRegistry"/>
+    </service>
+    <reference name="store" interface="org.onosproject.net.device.DeviceStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="termService" interface="org.onosproject.mastership.MastershipTermService" cardinality="1..1" policy="static" bind="bindTermService" unbind="unbindTermService"/>
+    <reference name="upgradeService" interface="org.onosproject.upgrade.UpgradeService" cardinality="1..1" policy="static" bind="bindUpgradeService" unbind="unbindUpgradeService"/>
+    <reference name="networkConfigService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetworkConfigService" unbind="unbindNetworkConfigService"/>
+    <reference name="communicationService" interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService" cardinality="1..1" policy="static" bind="bindCommunicationService" unbind="unbindCommunicationService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.net.device.impl.DeviceManager"/>
+</scr:component>

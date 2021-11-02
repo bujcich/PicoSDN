@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacktelemetry.impl.RestTelemetryConfigManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="address" value="localhost"/>
+    <property name="port" type="Integer" value="80"/>
+    <property name="endpoint" value="telemetry"/>
+    <property name="method" value="POST"/>
+    <property name="requestMediaType" value="application/json"/>
+    <property name="responseMediaType" value="application/json"/>
+    <property name="enableService" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacktelemetry.api.RestTelemetryConfigService"/>
+        <provide interface="org.onosproject.openstacktelemetry.api.TelemetryConfigService"/>
+    </service>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="restTelemetryAdminService" interface="org.onosproject.openstacktelemetry.api.RestTelemetryAdminService" cardinality="1..1" policy="static" bind="bindRestTelemetryAdminService" unbind="unbindRestTelemetryAdminService"/>
+    <implementation class="org.onosproject.openstacktelemetry.impl.RestTelemetryConfigManager"/>
+</scr:component>

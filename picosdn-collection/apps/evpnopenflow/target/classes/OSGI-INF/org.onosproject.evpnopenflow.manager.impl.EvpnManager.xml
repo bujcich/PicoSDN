@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.evpnopenflow.manager.impl.EvpnManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.evpnopenflow.manager.EvpnService"/>
+    </service>
+    <reference name="hostService" interface="org.onosproject.net.host.HostService" cardinality="1..1" policy="static" bind="bindHostService" unbind="unbindHostService"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="evpnRouteService" interface="org.onosproject.evpnrouteservice.EvpnRouteService" cardinality="1..1" policy="static" bind="bindEvpnRouteService" unbind="unbindEvpnRouteService"/>
+    <reference name="evpnRouteStore" interface="org.onosproject.evpnrouteservice.EvpnRouteStore" cardinality="1..1" policy="static" bind="bindEvpnRouteStore" unbind="unbindEvpnRouteStore"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="evpnRouteAdminService" interface="org.onosproject.evpnrouteservice.EvpnRouteAdminService" cardinality="1..1" policy="static" bind="bindEvpnRouteAdminService" unbind="unbindEvpnRouteAdminService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="labelAdminService" interface="org.onosproject.incubator.net.resource.label.LabelResourceAdminService" cardinality="1..1" policy="static" bind="bindLabelAdminService" unbind="unbindLabelAdminService"/>
+    <reference name="labelService" interface="org.onosproject.incubator.net.resource.label.LabelResourceService" cardinality="1..1" policy="static" bind="bindLabelService" unbind="unbindLabelService"/>
+    <reference name="vpnInstanceService" interface="org.onosproject.evpnopenflow.rsc.vpninstance.VpnInstanceService" cardinality="1..1" policy="static" bind="bindVpnInstanceService" unbind="unbindVpnInstanceService"/>
+    <reference name="flowObjectiveService" interface="org.onosproject.net.flowobjective.FlowObjectiveService" cardinality="1..1" policy="static" bind="bindFlowObjectiveService" unbind="unbindFlowObjectiveService"/>
+    <reference name="driverService" interface="org.onosproject.net.driver.DriverService" cardinality="1..1" policy="static" bind="bindDriverService" unbind="unbindDriverService"/>
+    <reference name="vpnPortService" interface="org.onosproject.evpnopenflow.rsc.vpnport.VpnPortService" cardinality="1..1" policy="static" bind="bindVpnPortService" unbind="unbindVpnPortService"/>
+    <reference name="vpnAfConfigService" interface="org.onosproject.evpnopenflow.rsc.vpnafconfig.VpnAfConfigService" cardinality="1..1" policy="static" bind="bindVpnAfConfigService" unbind="unbindVpnAfConfigService"/>
+    <reference name="configService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <implementation class="org.onosproject.evpnopenflow.manager.impl.EvpnManager"/>
+</scr:component>

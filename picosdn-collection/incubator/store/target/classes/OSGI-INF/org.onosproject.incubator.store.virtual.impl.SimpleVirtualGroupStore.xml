@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.incubator.store.virtual.impl.SimpleVirtualGroupStore" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualNetworkGroupStore"/>
+        <provide interface="org.onosproject.incubator.net.virtual.VirtualStore"/>
+    </service>
+    <implementation class="org.onosproject.incubator.store.virtual.impl.SimpleVirtualGroupStore"/>
+</scr:component>

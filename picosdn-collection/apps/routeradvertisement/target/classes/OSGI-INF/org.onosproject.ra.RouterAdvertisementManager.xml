@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.ra.RouterAdvertisementManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="raPoolSize" type="Integer" value="10"/>
+    <property name="raThreadDelay" type="Integer" value="5"/>
+    <property name="raFlagMbitStatus" type="Boolean" value="false"/>
+    <property name="raFlagObitStatus" type="Boolean" value="false"/>
+    <property name="raOptionPrefixStatus" type="Boolean" value="false"/>
+    <property name="raGlobalPrefixConfStatus" type="Boolean" value="true"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.ra.RoutingAdvertisementService"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="packetService" interface="org.onosproject.net.packet.PacketService" cardinality="1..1" policy="static" bind="bindPacketService" unbind="unbindPacketService"/>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="interfaceService" interface="org.onosproject.net.intf.InterfaceService" cardinality="1..1" policy="static" bind="bindInterfaceService" unbind="unbindInterfaceService"/>
+    <reference name="mastershipService" interface="org.onosproject.mastership.MastershipService" cardinality="1..1" policy="static" bind="bindMastershipService" unbind="unbindMastershipService"/>
+    <reference name="networkConfigRegistry" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindNetworkConfigRegistry" unbind="unbindNetworkConfigRegistry"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <implementation class="org.onosproject.ra.RouterAdvertisementManager"/>
+</scr:component>

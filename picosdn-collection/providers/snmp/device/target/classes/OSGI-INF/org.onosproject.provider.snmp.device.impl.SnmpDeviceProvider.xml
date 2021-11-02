@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.provider.snmp.device.impl.SnmpDeviceProvider" activate="activate" deactivate="deactivate" modified="modified">
+    <reference name="controller" interface="org.onosproject.snmp.SnmpController" cardinality="1..1" policy="static" bind="bindController" unbind="unbindController"/>
+    <reference name="providerRegistry" interface="org.onosproject.net.device.DeviceProviderRegistry" cardinality="1..1" policy="static" bind="bindProviderRegistry" unbind="unbindProviderRegistry"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="deviceStore" interface="org.onosproject.net.device.DeviceStore" cardinality="1..1" policy="static" bind="bindDeviceStore" unbind="unbindDeviceStore"/>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="netCfgService" interface="org.onosproject.net.config.NetworkConfigRegistry" cardinality="1..1" policy="static" bind="bindNetCfgService" unbind="unbindNetCfgService"/>
+    <implementation class="org.onosproject.provider.snmp.device.impl.SnmpDeviceProvider"/>
+</scr:component>

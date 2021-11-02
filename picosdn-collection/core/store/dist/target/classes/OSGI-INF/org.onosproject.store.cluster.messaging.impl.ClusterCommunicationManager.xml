@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.store.cluster.messaging.impl.ClusterCommunicationManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.store.cluster.messaging.ClusterCommunicationService"/>
+    </service>
+    <reference name="clusterService" interface="org.onosproject.cluster.ClusterService" cardinality="1..1" policy="static" bind="bindClusterService" unbind="unbindClusterService"/>
+    <reference name="messagingService" interface="org.onosproject.store.cluster.messaging.MessagingService" cardinality="1..1" policy="static" bind="bindMessagingService" unbind="unbindMessagingService"/>
+    <implementation class="org.onosproject.store.cluster.messaging.impl.ClusterCommunicationManager"/>
+</scr:component>

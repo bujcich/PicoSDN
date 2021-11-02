@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacktelemetry.impl.GrpcTelemetryConfigManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="address" value="localhost"/>
+    <property name="port" type="Integer" value="50051"/>
+    <property name="usePlaintext" type="Boolean" value="true"/>
+    <property name="maxInboundMsgSize" type="Integer" value="4194304"/>
+    <property name="enableService" type="Boolean" value="false"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacktelemetry.api.GrpcTelemetryConfigService"/>
+        <provide interface="org.onosproject.openstacktelemetry.api.TelemetryConfigService"/>
+    </service>
+    <reference name="componentConfigService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindComponentConfigService" unbind="unbindComponentConfigService"/>
+    <reference name="grpcTelemetryAdminService" interface="org.onosproject.openstacktelemetry.api.GrpcTelemetryAdminService" cardinality="1..1" policy="static" bind="bindGrpcTelemetryAdminService" unbind="unbindGrpcTelemetryAdminService"/>
+    <implementation class="org.onosproject.openstacktelemetry.impl.GrpcTelemetryConfigManager"/>
+</scr:component>

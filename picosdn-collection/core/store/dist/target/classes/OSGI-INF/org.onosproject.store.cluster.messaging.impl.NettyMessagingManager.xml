@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" enabled="false" name="org.onosproject.store.cluster.messaging.impl.NettyMessagingManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.store.cluster.messaging.MessagingService"/>
+    </service>
+    <reference name="clockService" interface="org.onosproject.core.HybridLogicalClockService" cardinality="1..1" policy="static" bind="bindClockService" unbind="unbindClockService"/>
+    <reference name="clusterMetadataService" interface="org.onosproject.cluster.ClusterMetadataService" cardinality="1..1" policy="static" bind="bindClusterMetadataService" unbind="unbindClusterMetadataService"/>
+    <implementation class="org.onosproject.store.cluster.messaging.impl.NettyMessagingManager"/>
+</scr:component>

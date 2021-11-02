@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.net.intent.impl.IntentManager" activate="activate" deactivate="deactivate" modified="modified">
+    <property name="skipReleaseResourcesOnWithdrawal" type="Boolean" value="false"/>
+    <property name="numThreads" type="Integer" value="12"/>
+    <service servicefactory="false">
+        <provide interface="org.onosproject.net.intent.IntentService"/>
+        <provide interface="org.onosproject.event.ListenerService"/>
+        <provide interface="org.onosproject.net.intent.IntentExtensionService"/>
+        <provide interface="org.onosproject.net.intent.IntentInstallCoordinator"/>
+    </service>
+    <reference name="coreService" interface="org.onosproject.core.CoreService" cardinality="1..1" policy="static" bind="bindCoreService" unbind="unbindCoreService"/>
+    <reference name="store" interface="org.onosproject.net.intent.IntentStore" cardinality="1..1" policy="static" bind="bindStore" unbind="unbindStore"/>
+    <reference name="trackerService" interface="org.onosproject.net.intent.ObjectiveTrackerService" cardinality="1..1" policy="static" bind="bindTrackerService" unbind="unbindTrackerService"/>
+    <reference name="flowRuleService" interface="org.onosproject.net.flow.FlowRuleService" cardinality="1..1" policy="static" bind="bindFlowRuleService" unbind="unbindFlowRuleService"/>
+    <reference name="flowObjectiveService" interface="org.onosproject.net.flowobjective.FlowObjectiveService" cardinality="1..1" policy="static" bind="bindFlowObjectiveService" unbind="unbindFlowObjectiveService"/>
+    <reference name="domainIntentService" interface="org.onosproject.net.domain.DomainIntentService" cardinality="1..1" policy="static" bind="bindDomainIntentService" unbind="unbindDomainIntentService"/>
+    <reference name="resourceService" interface="org.onosproject.net.resource.ResourceService" cardinality="1..1" policy="static" bind="bindResourceService" unbind="unbindResourceService"/>
+    <reference name="configService" interface="org.onosproject.cfg.ComponentConfigService" cardinality="1..1" policy="static" bind="bindConfigService" unbind="unbindConfigService"/>
+    <reference name="groupService" interface="org.onosproject.net.group.GroupService" cardinality="1..1" policy="static" bind="bindGroupService" unbind="unbindGroupService"/>
+    <reference name="networkConfigService" interface="org.onosproject.net.config.NetworkConfigService" cardinality="1..1" policy="static" bind="bindNetworkConfigService" unbind="unbindNetworkConfigService"/>
+    <reference name="eventDispatcher" interface="org.onosproject.event.EventDeliveryService" cardinality="1..1" policy="static" bind="bindEventDispatcher" unbind="unbindEventDispatcher"/>
+    <implementation class="org.onosproject.net.intent.impl.IntentManager"/>
+</scr:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.onosproject.openstacknetworkingui.OpenstackNetworkingUiManager" activate="activate" deactivate="deactivate">
+    <service servicefactory="false">
+        <provide interface="org.onosproject.openstacknetworkingui.OpenstackNetworkingUiService"/>
+    </service>
+    <reference name="uiExtensionService" interface="org.onosproject.ui.UiExtensionService" cardinality="1..1" policy="static" bind="bindUiExtensionService" unbind="unbindUiExtensionService"/>
+    <reference name="deviceService" interface="org.onosproject.net.device.DeviceService" cardinality="1..1" policy="static" bind="bindDeviceService" unbind="unbindDeviceService"/>
+    <reference name="linkStore" interface="org.onosproject.net.link.LinkStore" cardinality="1..1" policy="static" bind="bindLinkStore" unbind="unbindLinkStore"/>
+    <implementation class="org.onosproject.openstacknetworkingui.OpenstackNetworkingUiManager"/>
+</scr:component>
